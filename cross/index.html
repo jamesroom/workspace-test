@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="/jockjs.js"></script>
+
+    <title>跨域知识</title>
+    <style type="text/css">
+        dt{
+            font-size: 26px;;
+            font-weight: 700;;
+        }
+        dd{
+            margin: 20px 40px 0 ;
+        }
+        li pre{
+            background: rgba(204, 204, 204, 0.19);
+            color: #333;;
+            padding: 10px;;
+        }
+        .code{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dt>何谓跨域？</dt>
+    <dd>是指在一个域下的页面中通过js访问另一个不同域下 的数据对象.</dd>
+    <dd>下面哪些属于跨域？</dd>
+
+    <dd>
+        <ul>
+            <li>
+                www.anjuke.com请求www.haozu.com
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <pre>
+              J.g("btnHost").on('click', function(){
+                    var url ='http://www.haozu.com/ajax.php';
+                        J.get({url:url,data:{num:num++},onSuccess:function(ret){
+                            console.log(ret);
+                        }})
+                });
+                </pre>
+                <input type="button" value="send ajax" id="btnHost"/>
+            </li>
+
+            <li>
+                www.anjuke.com请求zu.anjuke.com
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <pre>
+              J.g("btnHost1").on('click', function(){
+                    var url ='http://zu.anjuke.com/ajax.php';
+                        J.get({url:url,data:{num:num++},onSuccess:function(ret){
+                            console.log(ret);
+                        }})
+                });
+                </pre>
+                <input type="button" value="send ajax" id="btnHost1"/>
+            </li>
+            <li>
+                www.anjuke.com请求www.anjuke.com:81
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <pre>
+              J.g("btnHost2").on('click', function(){
+                    var url ='http://www.anjuke.com:81/ajax.php';
+                        J.get({url:url,data:{num:num++},onSuccess:function(ret){
+                            console.log(ret);
+                        }})
+                });
+                </pre>
+                <input type="button" value="send ajax" id="btnHost2"/>
+            </li>
+
+            <li style="margin-top: 50px;font-weight: 700;margin-bottom: 10px;">
+                四方跨域方案及应用场景
+            </li>
+            <li>
+                1.get方式跨域
+            </li>
+            <li>
+                2.post方式跨域
+            </li>
+            <li>
+                3.Access-Control-Allow-Origin方式跨域
+            </li>
+            <li>
+                4.postMessage方式跨域
+            </li>
+        </ul>
+    </dd>
+</dl>
+<a href="get.html">get方式跨域</a>
+<script type="text/javascript">
+    J.s(".btnCode").each(function(k,v){
+        v.on('click',function(){
+            var dom = v.up(0).next().get();
+            dom.style.display=dom.style.display=="block"?"":"block";
+        })
+    })
+    var num=0;
+    J.g("btnHost").on('click',sendAjax1);
+    function sendAjax1(){
+        var url ='http://www.haozu.com/ajax.php';
+        J.get({url:url,data:{num:num++},onSuccess:function(ret){
+            console.log(ret);
+        }})
+    }
+    J.g("btnHost1").on('click',sendAjax2);
+    function sendAjax2(){
+        var url ='http://zu.anjuke.com/ajax.php';
+        J.get({url:url,data:{num:num++},onSuccess:function(ret){
+            console.log(ret);
+        }})
+    }
+    J.g("btnHost2").on('click',sendAjax3);
+
+    function sendAjax3(){
+        var url ='http://www.anjuke.com:81/ajax.php';
+        J.get({url:url,data:{num:num++},onSuccess:function(ret){
+            console.log(ret);
+        }})
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<!--<script type="text/javascript">
+var objJS = {style: document.body.style};
+var objDOM = document.body;
+
+
+var N = 1e7;
+var t0;
+var t1, t2;
+
+t0 = +new Date;
+for(var i=0; i<N; i++)
+    ;
+t0 = new Date - t0;
+
+t1 = +new Date;
+for(var i=0; i<N; i++)
+{
+    /* 测试1 */
+    objDOM.style;
+    /* 测试1 */
+}
+t1 = new Date - t1 - t0;
+
+
+t2 = +new Date;
+for(var i=0; i<N; i++)
+{
+    /* 测试2 */
+    objJS.style;
+    /* 测试2 */
+}
+t2 = new Date - t2 - t0;
+
+alert("t1 : t2 = " + t1 / t2 + " : 1");
+</script>-->
+<div id="result"></div>
+<script type="text/javascript">
+var obj = document.getElementById('result');
+var objDOM = obj.style;
+var loop = 100000;
+function Test() {
+    var t0;
+    var t1, t2;
+      
+    t0 = +new Date();
+    for(var i=0; i<loop; i++)
+        ;
+    t0 = +new Date() - t0;
+      
+    t1 = +new Date();
+    for(var i=0; i<loop; i++)
+    {
+        obj.style.color='red';
+        obj.style.fontSize='16px';
+        obj.style.width='500px';
+        obj.style.height='100px';
+        obj.style.border='1px solid #ccc';
+    }
+    t1 = +new Date() - t1 - t0;
+       
+    t2 = +new Date();
+    for(var i=0; i<loop; i++)
+    {
+        objDOM.color='red';
+        objDOM.fontSize='16px';
+        objDOM.width='500px';
+        objDOM.height='100px';
+        objDOM.border='1px solid #ccc';
+    }
+    t2 = +new Date() - t2 - t0;
+    return "t1 : t2 = " + (t1 / t2).toFixed(6) + " : 1 # t1=" + t1 + " : t2=" + t2 + "<br />";
+ }
+obj.innerHTML=Test();
+obj.innerHTML+=Test();
+obj.innerHTML+=Test();
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.dialog_map{
+    width: 758px;
+    height: 663px;
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 20px;
+
+}
+.dialog_map .close{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: url("") 0 0;
+    top: -18px;
+    right: -18px;
+}
+.dialog_map .t{
+    height: 48px;
+    line-height: 68px;
+}
+.dialog_map .t b{
+    font-size: 20px;
+    font-family: '微软雅黑,Tahoma,Arial,Helvetica,sans-serif';
+}
+.dialog_map .t .comm_name{
+    color: #d9d9d9;
+}
+.dialog_map .c{
+    width: 760px;
+    height: 340px;
+}
+.dialog_map .view_map{
+    width: 106px;
+    height: 28px;
+    line-height: 28px;
+    background: #62ab00;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    float: right;
+}

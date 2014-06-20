@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="http://jockjs.lunjiang.dev.anjuke.com/ujs/base/logger/dom.dom/dom.query/ajax/event/ui.panel/ui.autocomplete/cookie/site/utils.base/05649b0d6dcf6ac5bed03ca14aee15a3.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>JS第一季</title>
+</head>
+<body>
+   <div class="dialog_map">
+       <a href="javascript:void(0);" class="close">x</a>
+       <div class="t">
+           <b class="static">周边配套</b>
+           <b class="comm_name">浦发绿城</b>
+           <a href="###" class="view_map">查看大地图</a>
+       </div>
+       <div class="c">
+           <div class="map_container" id="map_container">
+
+           </div>
+           <span class="zoom_add"></span>
+           <span class="zoom_des"></span>
+       </div>
+
+       <div class="tabs">
+           <a href="javascript:void(0)">交通</a>
+           <a href="javascript:void(0)">学校</a>
+           <a href="javascript:void(0)">医院</a>
+           <a href="javascript:void(0)">商业</a>
+       </div>
+
+       <ul class="items">
+           <li class="subway">
+               <a href="###">浦三路</a>
+               <span>-</span>
+               <span class="addr">地铁11号线</span>
+               <span class="dis">880米</span>
+           </li>
+           <li class="bus">
+               <a href="###">浦三路</a>
+               <span>-</span>
+               <span class="addr">地铁11号线</span>
+               <span class="dis">880米</span>
+           </li>
+           <li class="bus">
+               <a href="###">浦三路</a>
+               <span>-</span>
+               <span class="addr">地铁11号线</span>
+               <span class="dis">880米</span>
+           </li>
+           <li class="bus">
+               <a href="###">浦三路</a>
+               <span>-</span>
+               <span class="addr">地铁11号线</span>
+               <span class="dis">880米</span>
+           </li>
+           <li class="bus">
+               <a href="###">浦三路</a>
+               <span>-</span>
+               <span class="addr">地铁11号线</span>
+               <span class="dis">880米</span>
+           </li>
+           <li class="bus">
+               <a href="###">浦三路</a>
+               <span>-</span>
+               <span class="addr">地铁11号线</span>
+               <span class="dis">880米</span>
+           </li>
+       </ul>
+
+
+   </div>
+</body>
+<script type="text/javascript">
+
+    J = {};
+    J.globalCitySelector = function(names){
+        var item;
+        var arr_name = names.split(".");
+        var context = window;
+        function regsiter(name,context){
+            context = context[name]?context[name]:(context[name]={})
+            item =arr_name.shift();
+            item&&regsiter(item,context);
+        }
+        item =arr_name.shift();
+        item&&regsiter(item,context);
+    }
+</script>
+</html>

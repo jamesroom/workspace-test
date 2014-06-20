@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://include.aifcdn.com/ujs/base/logger/dom.dom/dom.query/ajax/event/ui.panel/ui.autocomplete/ui.exposure/cookie/site/utils.base/ad9e358c207d0332de71707bc0066e45.js"></script>
+
+</head>
+<body>
+    <div id="main">
+        <div class="title">
+            全部资讯列表
+        </div>
+        <div>
+            <label>日期</label><span>2012-10-10</span>
+            <label>时间</label><span>14：00 -- 15：00</span>
+            <label>楼盘</label><span>汤臣一品</span>
+            <label>联系人</label><span>张三丰</span>
+            <label>携带资料</label>
+            <span><input type="checkbox" name="" value="" checked="checked">公司介绍</span>
+            <span><input type="checkbox" name="" value="" checked="checked">产品介绍</span>
+            <span><input type="checkbox" name="" value="" checked="checked">推荐方案</span>
+            <span><input type="checkbox" name="" value="" checked="checked">礼品</span>
+            <span><input type="checkbox" name="" value="" checked="checked">服务报告</span>
+            <span><input type="checkbox" name="" value="" checked="checked">楼盘基本资料</span>
+        </div>
+
+        <!--D阶段 begain-->
+        <div>
+
+            <ul>
+                <li class="t">您当前处于"<strong>D</strong>"阶段，本阶段为：</li>
+                <li class="t">您当前处于"<strong>D</strong>"阶段，本阶段为：</li>
+
+            </ul>
+                <div class="t">您当前处于"<strong>D</strong>"阶段，本阶段为：</div>
+
+
+
+                    <dd>
+                        <dt>1.  获得至少一个楼盘联系人* （<i>已完成</i>）</dt>
+                        <dl>
+                            <input type="text" placeholder="请输入本次拜访的联系人"/>
+                        </dl>
+                    </dd>
+
+                    <dd>
+                        <dt>1.  2.  了解该楼盘已合作媒体  * （<i>已完成</i>）</dt>
+                        <dl>
+                           <label>网络媒体：</label>
+                            <span><input type="checkbox" name="" value=""/>无</span>
+                            <span><input type="checkbox" name="" value=""/>搜房</span>
+                            <span><input type="checkbox" name="" value=""/>乐居</span>
+                            <span><input type="checkbox" name="" value=""/>焦点</span>
+                            <span>
+                                <input type="checkbox" name="" value=""/>其它
+                                <input type="text" value="" name=""/>
+                            </span>
+                        </dl>
+                        <dl>
+                            <label>其它媒体：</label>
+                            <span><input type="checkbox" name="" value=""/>无</span>
+                            <span><input type="checkbox" name="" value=""/>报纸</span>
+                            <span><input type="checkbox" name="" value=""/>电视</span>
+                            <span><input type="checkbox" name="" value=""/>户外</span>
+                        </dl>
+                    </dd>
+
+
+
+
+        </div>
+        <!--D阶段 end-->
+
+
+    </div>
+<script type="text/javascript">
+    /*function jsonp(){
+        var opts ={
+            url: buildUrl('poll'),
+            data: {
+                'r': Math.random()
+            },
+            timeout: 5000,
+            type: 'jsonp',
+            onFailure:function(){
+                console.log('faile')
+            },
+            callback: 'J.chat.pdata.callbackPoll';
+
+
+
+        }
+
+
+    }
+    */
+
+
+
+        function jsonp(option){
+            var opts= {
+                url:'',
+                data:{},
+                onSuccess:function(){},
+                onFailure:function(){},
+                timeout:13000
+            }
+            opts = J.mix(opts,option)
+            var script = document.createElement("script");
+            var head =  document.head || document.getElementsByTagName("head")[0];
+            var strParams = '?';
+            var params = opts.data;
+            timer = setTimeout(timeout,opts.timeout)
+            var funObj = getGuidFun(opts.onSuccess,timer);
+            params.callback = funObj.name;
+            var timer;
+            for(var i in params){
+                strParams+=i+'='+params[i]+'&';
+            }
+            script.src=opts.url+strParams;
+            head.appendChild(script);
+            script.onload=script.onreadystatechange = function(_, isAbort){
+                console.log("loaded:",timer)
+                if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {
+                    script.onload = script.onreadystatechange = null;
+                    if ( head && script.parentNode ) {
+                        head.removeChild( script );
+                    }
+                    script = undefined
+                }
+            }
+
+            function timeout(){
+                console.log('timerout')
+                opts.onFailure();
+                abort();
+                timer = undefined;
+                funObj.destoryFun();
+            }
+
+
+            function abort(){
+                script&&script.onload(null,true);
+            }
+            return {
+                abort:abort
+            }
+        }
+
+        function getGuidFun(callback,timer){
+            var guid =0;
+            getGuidFun =function(callback,timer){
+                return (function(id){
+                    var funName ='callback_chat'+id;
+                    destoryFun();
+                    window[funName] = function(){
+                            timer&&clearTimeout(timer);
+                            var args = Array.prototype.slice.call(arguments);
+                            callback.apply(null,args);
+                            delete window[funName];
+                    }
+                    id++;
+                    function destoryFun(){
+                        var d_id = id-1;
+                        window['callback_chat'+(d_id)]&&(window['callback_chat'+(d_id)] = function(){
+                            delete window['callback_chat'+(d_id)];
+                        })
+                    }
+                    return {
+                        name:funName,
+                        destoryFun:destoryFun
+                    }
+
+                })(++guid);
+
+            }
+            return getGuidFun(callback,timer);
+        }
+
+
+
+
+    var obj1 = jsonp({
+        url:'http://dev.aifang.com:8080/register/52CB4528-4CE0-6306-3123-6A29281330F3/w-ajk-user-chat/2000132523',
+        data:{
+            r:Math.random(),
+            auth:'769112bbcac539aa8e125aafca8e212e6e9fc'
+        },
+        onSuccess:function(data){
+            console.log("success:",data);
+        },
+        onFailure:function(data){
+            console.log("failture:",data);
+        }
+
+    });
+    //console.log(obj1);
+    //obj1.abort();
+        jsonp({
+        url:'http://dev.aifang.com:8080/register/52CB4528-4CE0-6306-3123-6A29281330F3/w-ajk-user-chat/2000132523',
+        data:{
+            r:Math.random(),
+            auth:'769112bbcac539aa8e125aafca8e212e6e9fc'
+        },
+        onSuccess:function(data){
+            console.log("success:",data);
+        },
+        onFailure:function(data){
+            console.log("failture:",data);
+        }
+
+    });
+    jsonp({
+        url:'http://dev.aifang.com:8080/register/52CB4528-4CE0-6306-3123-6A29281330F3/w-ajk-user-chat/2000132523',
+        data:{
+            r:Math.random(),
+            auth:'769112bbcac539aa8e125aafca8e212e6e9fc'
+        },
+        onSuccess:function(data){
+            console.log("success:",data);
+        },
+        onFailure:function(data){
+            console.log("failture:",data);
+        }
+
+    });jsonp({
+        url:'http://dev.aifang.com:8080/register/52CB4528-4CE0-6306-3123-6A29281330F3/w-ajk-user-chat/2000132523',
+        data:{
+            r:Math.random(),
+            auth:'769112bbcac539aa8e125aafca8e212e6e9fc'
+        },
+        onSuccess:function(data){
+            console.log("success:",data);
+        },
+        onFailure:function(data){
+            console.log("failture:",data);
+        }
+
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)http://192.168.181.245:8080/actionmanage/loupanMap.action?huodong.huodongId=410 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>楼盘地图</title>
+<link rel="stylesheet" href="./楼盘地图_files/main.css" type="text/css">
+<link rel="stylesheet" href="./楼盘地图_files/style.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="./楼盘地图_files/jscal2.css">
+<link rel="stylesheet" type="text/css" href="./楼盘地图_files/border-radius.css">
+<link rel="stylesheet" type="text/css" href="./楼盘地图_files/steel.css">
+<link rel="stylesheet" type="text/css" href="./楼盘地图_files/jquery.autocomplete.css">
+
+<script type="text/javascript" src="./楼盘地图_files/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="./楼盘地图_files/jquery.cookie.js"></script>
+<script type="text/javascript" src="./楼盘地图_files/jquery.validate.js"></script>
+<script type="text/javascript" src="./楼盘地图_files/jquery.autocomplete.js"></script>
+
+
+
+<script type="text/javascript" src="./楼盘地图_files/jquery-1.4.2.js"></script>
+<link rel="stylesheet" href="./楼盘地图_files/loupanmap.css" type="text/css">
+
+
+
+
+</head>
+    <body>
+
+        <div class="container">
+            <!-- header begin -->
+            <div class="header">
+                <div class="logo">
+                    <img alt="" src="./楼盘地图_files/msc_logo.png" width="444px" height="45px">
+                    <a href="http://192.168.181.245:8080/logout.action" class="a_exit">退出</a>
+                     
+                    <div class="clear"></div>
+                </div>
+                <div class="blank"></div>
+            </div>
+            <!-- header end -->
+
+
+            <!-- content begin -->
+            <div class="content con_list">
+                <dl class="equal nav_l">
+
+                        
+                        
+                            <dt>
+                            <span>欢迎进入系统</span><br>
+                            徐新龙
+                        
+                    </dt>
+                    
+                        <dd class="dd_active"><a class="dd_a dd_hd" href="http://192.168.181.245:8080/actionmanage/list.action">活动管理</a></dd>
+                    
+                    
+                    <dd><a class="dd_a dd_rw" href="http://192.168.181.245:8080/taskmanage/allotList.action">任务管理</a></dd>
+                    <dd><a class="dd_a dd_zj" href="http://192.168.181.245:8080/tsrmanage/report.action">绩效与质检</a></dd>
+                    
+                    
+                    <dd><a class="dd_a dd_hj" href="http://192.168.181.245:8080/mytask/taskList.action">待呼叫任务</a></dd>
+                    <dd><a class="dd_a dd_gj" href="http://192.168.181.245:8080/mycustomer/list.action">需跟进用户</a></dd>
+                    
+                    
+                    
+                </dl>
+                <div class="equal con_r con_task">
+                    
+	<div class="tab">
+		<a href="http://192.168.181.245:8080/actionmanage/list.action" class="a_tab">活动列表</a> <a href="http://192.168.181.245:8080/actionmanage/loupanMap.action?huodong.huodongId=410#" class="a_tab active">楼盘地图</a>
+		<div class="clear"></div>
+	</div>
+	<div class="full_view" style="position:relative;display:inline-block;" id="map_content">
+		<div id="allmap" style="width: 1600px; height: 860px; overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"><div style="overflow: visible; position: absolute; z-index: 0; left: 570px; top: 332px; cursor: url(http://api.map.baidu.com/images/openhand.cur) 8 8, default;"><div class="BMap_mask" style="position: absolute; left: -570px; top: -332px; z-index: 9; overflow: hidden; -webkit-user-select: none; width: 1600px; height: 860px;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"><div class="tip_content" style="z-index: 0; -webkit-user-select: none; left: 247px; top: 266px;"><div style="white-space: nowrap; position: relative;"><span class="i_B">力诚凯怡湾</span><span class="i_S_r">&nbsp;</span></div></div><div class="tip_content" style="z-index: 0; -webkit-user-select: none; left: -215px; top: -751px;"><div style="white-space: nowrap; position: relative;"><span class="i_B blue_bg">海伦春天</span><span class="i_S_r blue_bg">&nbsp;</span></div></div><div class="tip_content" style="z-index: 0; -webkit-user-select: none; left: 316px; top: -2276px;"><div style="white-space: nowrap; position: relative;"><span class="i_B blue_bg">恒大山水城</span><span class="i_S_r blue_bg">&nbsp;</span></div></div><div class="tip_content" style="z-index: 0; -webkit-user-select: none; left: 101px; top: 190px;"><div style="white-space: nowrap; position: relative;"><span class="i_B blue_bg">假日花园</span><span class="i_S_r blue_bg">&nbsp;</span></div></div><div class="tip_content" style="z-index: 0; -webkit-user-select: none; left: -706px; top: 83px;"><div style="white-space: nowrap; position: relative;"><span class="i_B blue_bg">翡翠绿洲</span><span class="i_S_r blue_bg">&nbsp;</span></div></div><div class="tip_content" style="z-index: 0; -webkit-user-select: none; left: -130px; top: 492px;"><div style="white-space: nowrap; position: relative;"><span class="i_B blue_bg">尚东阳光</span><span class="i_S_r blue_bg">&nbsp;</span></div></div><label class="BMapLabel" unselectable="on" style="position: absolute; display: inline; cursor: inherit; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 0, 0); padding: 1px; white-space: nowrap; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: arial, sans-serif; z-index: 0; left: 46px; top: -223px;">相距8248米</label><label class="BMapLabel" unselectable="on" style="position: absolute; display: inline; cursor: inherit; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 0, 0); padding: 1px; white-space: nowrap; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: arial, sans-serif; z-index: 0; left: 312px; top: -984px;">相距18780米</label><label class="BMapLabel" unselectable="on" style="position: absolute; display: inline; cursor: inherit; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 0, 0); padding: 1px; white-space: nowrap; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: arial, sans-serif; z-index: 0; left: 204px; top: 248px;">相距1213米</label><label class="BMapLabel" unselectable="on" style="position: absolute; display: inline; cursor: inherit; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 0, 0); padding: 1px; white-space: nowrap; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: arial, sans-serif; z-index: 0; left: -199px; top: 195px;">相距7130米</label><label class="BMapLabel" unselectable="on" style="position: absolute; display: inline; cursor: inherit; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 0, 0); padding: 1px; white-space: nowrap; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: arial, sans-serif; z-index: 0; left: 89px; top: 399px;">相距3231米</label><div style="position: absolute; z-index: 0; -webkit-user-select: none; left: 324px; top: 191px; display: none;"><div class="m_pop"><div class="m_content"><a target="_blank" class="m_img" href="http://www.fang.anjuke.com/loupan/241135.html"><img height="94" width="122" src="./楼盘地图_files/133x100.jpg" class="m_a_img"></a><dl class="m_box"><dt class="dt_001"><b><a class="m_cname" target="_blank" href="http://www.fang.anjuke.com/loupan/241135.html">力诚凯怡湾</a></b><i class="icon_sw">&nbsp;</i></dt><dd class="dd_002">价格：<span>7300</span>元/平米</dd><dd class="dd_003">地址：<span>增城 新塘大道中205号</span></dd><dd class="dd_004">一次分配了：<span>465</span></dd><dd class="dd_005">一次成功了：<span>80</span></dd><dd class="dd_006">二次成功了：<span>0</span></dd><dd class="dd_007">二次落地了：<span>0</span></dd><dd class="dd_005"><a target="_blank" class="m_detail" href="http://www.fang.anjuke.com/loupan/241135.html">查看详情&nbsp;&gt;&gt;</a></dd></dl></div><div id="m_close" class="m_close"></div></div></div></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 300;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 201;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"><svg version="1.1" type="system" style="position: absolute; top: -832px; left: -1070px; width: 2600px; height: 1860px;" x="2600px" y="1860px" viewBox="-1070 -832 2600 1860"><path stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" style="cursor: pointer; -webkit-user-select: none;" fill="none" stroke="red" stroke-width="4" stroke-dasharray="none" stroke-opacity="0.5" d="M 277 296 L -185 -721"></path><path stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" style="cursor: pointer; -webkit-user-select: none;" fill="none" stroke="red" stroke-width="4" stroke-dasharray="none" stroke-opacity="0.5" d="M 277 296 L 308 -832"></path><path stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" style="cursor: pointer; -webkit-user-select: none;" fill="none" stroke="red" stroke-width="4" stroke-dasharray="none" stroke-opacity="0.5" d="M 277 296 L 131 220"></path><path stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" style="cursor: pointer; -webkit-user-select: none;" fill="none" stroke="red" stroke-width="4" stroke-dasharray="none" stroke-opacity="0.5" d="M 277 296 L -676 113"></path><path stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" style="cursor: pointer; -webkit-user-select: none;" fill="none" stroke="red" stroke-width="4" stroke-dasharray="none" stroke-opacity="0.5" d="M 277 296 L -100 522"></path></svg></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 1;"><div style="position: absolute; overflow: visible; z-index: -100; left: 230px; top: 98px;"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -329px; top: -214px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6174;y=1285;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 183px; top: -214px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6176;y=1285;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -73px; top: 42px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6175;y=1284;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -73px; top: -470px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6175;y=1286;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 439px; top: -214px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6177;y=1285;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -585px; top: -214px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6173;y=1285;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -329px; top: 42px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6174;y=1284;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -329px; top: -470px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6174;y=1286;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 183px; top: -470px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6176;y=1286;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 183px; top: 42px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6176;y=1284;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -73px; top: 298px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6175;y=1283;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -841px; top: -214px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6172;y=1285;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 695px; top: -214px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6178;y=1285;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -585px; top: -470px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6173;y=1286;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -585px; top: 42px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6173;y=1284;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 439px; top: 42px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6177;y=1284;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 439px; top: -470px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6177;y=1286;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 183px; top: 298px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6176;y=1283;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -329px; top: 298px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6174;y=1283;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 695px; top: 42px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6178;y=1284;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -841px; top: 42px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6172;y=1284;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 695px; top: -470px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6178;y=1286;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -841px; top: -470px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6172;y=1286;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 439px; top: 298px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6177;y=1283;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -585px; top: 298px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6173;y=1283;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: 695px; top: 298px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6178;y=1283;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -841px; top: 298px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6172;y=1283;z=15;v=015"><img style="position: absolute; border: none; width: 256px; height: 256px; left: -73px; top: -214px; max-width: none; opacity: 1;" src="./楼盘地图_files/u=x=6175;y=1285;z=15;v=015"></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 2;"></div></div><div style="height: 32px; position: absolute; z-index: 10; -webkit-text-size-adjust: none; bottom: 0px; right: auto; top: auto; left: 1px;" class=" anchorBL"><a title="到百度地图查看此区域" target="_blank" href="http://map.baidu.com/?sr=1" style="outline: none;"><img style="border:none;width:77px;height:32px" src="./楼盘地图_files/copyright_logo.png"></a></div><div id="zoomer" style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:url(http://api.map.baidu.com/images/openhand.cur) 8 8,default"><div class="BMap_zoomer" style="top:0;left:0;"></div><div class="BMap_zoomer" style="top:0;right:0;"></div><div class="BMap_zoomer" style="bottom:0;left:0;"></div><div class="BMap_zoomer" style="bottom:0;right:0;"></div></div><div unselectable="on" class=" BMap_stdMpCtrl BMap_stdMpType0 BMap_noprint anchorTL" style="width: 62px; height: 192px; bottom: auto; right: auto; top: 10px; left: 10px; position: absolute; z-index: 1100; -webkit-text-size-adjust: none;"><div class="BMap_stdMpPan"><div class="BMap_button BMap_panN" title="向上平移"></div><div class="BMap_button BMap_panW" title="向左平移"></div><div class="BMap_button BMap_panE" title="向右平移"></div><div class="BMap_button BMap_panS" title="向下平移"></div><div class="BMap_stdMpPanBg BMap_smcbg"></div></div><div class="BMap_stdMpZoom" style="height: 147px; width: 62px;"><div class="BMap_button BMap_stdMpZoomIn" title="放大一级" style=""><div class="BMap_smcbg"></div></div><div class="BMap_button BMap_stdMpZoomOut" title="缩小一级" style="top: 126px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSlider" style="height: 108px;"><div class="BMap_stdMpSliderBgTop" style="height: 108px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSliderBgBot" style="top: 25px; height: 87px;"></div><div class="BMap_stdMpSliderMask" title="放置到此级别"></div><div class="BMap_stdMpSliderBar" title="拖动缩放" style="cursor: url(http://api.map.baidu.com/images/openhand.cur) 8 8, default; top: 25px;"><div class="BMap_smcbg"></div></div></div><div class="BMap_zlHolder"><div class="BMap_zlSt"><div class="BMap_smcbg"></div></div><div class="BMap_zlCity"><div class="BMap_smcbg"></div></div><div class="BMap_zlProv"><div class="BMap_smcbg"></div></div><div class="BMap_zlCountry"><div class="BMap_smcbg"></div></div></div></div></div><div unselectable="on" class=" BMap_cpyCtrl BMap_noprint anchorBL" style="cursor: default; white-space: nowrap; color: black; background-image: none; font-style: normal; font-variant: normal; font-weight: normal; font-size: 11px; line-height: 15px; font-family: arial, sans-serif; bottom: 2px; right: auto; top: auto; left: 81px; position: absolute; z-index: 10; -webkit-text-size-adjust: none; background-position: initial initial; background-repeat: initial initial;"><span _cid="1" style="display: inline;"><span style="font-size:11px">© 2013 Baidu&nbsp;- Data © <a target="_blank" href="http://www.navinfo.com/">NavInfo</a> &amp; <a target="_blank" href="http://www.cennavi.com.cn/">CenNavi</a> &amp; <a target="_blank" href="http://www.365ditu.com/">道道通</a></span></span></div></div>
+
+		<a href="javascript:void(0)" id="full_screen" style="display: none;"></a>
+
+        <a href="javascript:void(0)" id="exit_screen" style="display: block;"></a>
+	</div>
+
+	<input type="hidden" name="huodong.huodongId" value="410" id="huodongId">
+
+	<script type="text/javascript" src="./楼盘地图_files/api"></script><link rel="stylesheet" type="text/css" href="./楼盘地图_files/bmap.css"><script type="text/javascript" src="./楼盘地图_files/getscript"></script>
+
+	<script type="text/javascript">
+	    var J ={};
+	    var DialogMark = {};
+	    var targetDialog = null;
+	    var showDialogTarget = null;//已经打开的对像
+	    var redBackgroundTarget  = null;//忆点击的红色背景
+	    var lineDataSource = []; //测距直线
+	    var labelDataSource = [];
+	    (function(J){
+	        var defaultOpts ={
+	            point:null
+	        };
+	        function Mark(options){
+	            this.point = options.point;
+	            this.text = options.text || '未初始text';
+	            this.html = options.html || '未初始化html';
+	            this.main = options.main || false;
+	        }
+
+	        Mark.prototype = new BMap.Overlay();
+	        Mark.prototype.initialize = function(map){
+	            this._map = map;
+	            var div = this._div = document.createElement("div");
+	            div.className="tip_content";
+	            div.style.zIndex = BMap.Overlay.getZIndex(this.y);
+	            div.style.MozUserSelect = "none";
+
+	            var relativeDiv = document.createElement("div");
+	            relativeDiv.style.whiteSpace="nowrap";
+	            relativeDiv.style.position="relative";
+	            var span = this._span = document.createElement("span");
+	            span.className=this.main ? "i_B":"i_B blue_bg";
+	            var rspan= document.createElement("span");
+	            rspan.className=this.main ? "i_S_r" :"i_S_r blue_bg";
+
+
+	            (span.innerText !== undefined && (span.innerText = this.text)) || (span.textContent!==undefined && (span.textContent = this.text));
+	            rspan.innerHTML="&nbsp;";
+	            relativeDiv.appendChild(span);
+	            relativeDiv.appendChild(rspan);
+	            div.appendChild(relativeDiv);
+	            div.onmouseover = function(){
+	              //  this.getElementsByTagName("span")[0].className="i_B act";
+	            }
+	            div.onmouseout = function(){
+	//                this.getElementsByTagName("span")[0].className="i_B";
+	            }
+
+	            map.getPanes().labelPane.appendChild(div);
+
+	            (function(point,html,contentTarget){
+	                var point = point;
+	                var html = html;
+	                div.onclick = function(){
+	                    //to change the background,so ,cache the target.
+	                    if(redBackgroundTarget != this){
+	                        redBackgroundTarget = this;
+	                        //drawoline
+
+	                            <!--begain移除已经画的线-->
+	                            <!--end 移除已经画的线-->
+	                        //创建label
+	                    }
+	                    //下面是画ｄｉａｌｏｇ
+	                    var keyPoint = ""+ point.lng+ point.lat;
+	                    if(!DialogMark[keyPoint]){
+	                        showDialogTarget &&showDialogTarget.hide();
+	                        var width =(document.defaultView.getComputedStyle(contentTarget,null).width) || (contentTarget.currentStyle.width);
+	                        var dialog = new J.Dialog({point:point,html:html,width:width});
+	                        map.addOverlay(dialog);
+	                        DialogMark[keyPoint] = dialog;
+	                        showDialogTarget = dialog;
+	                        return;
+	                    }
+	                    if(DialogMark[keyPoint].isVisible()){
+	                        return;
+	                    }
+	                    showDialogTarget &&showDialogTarget.hide();
+	                    DialogMark[keyPoint].show();
+	                    showDialogTarget = DialogMark[keyPoint];
+	                }
+	            })(this.point,this.html,this._div);//rspan计算偏移对像要用到
+	            return div;
+	        }
+
+	        Mark.prototype.draw = function(){
+	            var map  = this._map;
+	            var pixel = map.pointToOverlayPixel(this.point);
+	            this._div.style.left = pixel.x-30 +"px";
+	            this._div.style.top = pixel.y-30  + "px";
+	        }
+	        J.Mark = Mark;
+	    })(J);
+
+
+	    (function(J){
+	        var defaultOpts ={
+	            point:null
+	        };
+	        function Dialog(options){
+	            this.point = options.point || defaultOpts.point;
+	            this.html = options.html || '填充代码';
+	            this._offsetLeft = options.width;
+	        }
+	        Dialog.prototype = new BMap.Overlay();
+	        Dialog.prototype.initialize = function(map){
+	            this._map = map;
+	            var div = this._div = document.createElement("div");
+	            div.style.position = "absolute";
+	            div.style.zIndex = BMap.Overlay.getZIndex(this.y);
+	            div.style.MozUserSelect = "none";
+	            div.innerHTML= this.html;
+	            map.getPanes().labelPane.appendChild(div);
+	            //为关闭按扭绑定事件
+	            var obj = selectorByClassName(div,"m_close")
+	            obj.onclick= function(){
+	                showDialogTarget && (showDialogTarget.hide());
+	            }
+	            return div;
+	        }
+	        function selectorByClassName(root,classname){
+	            if(root.nodeType != 1){
+	                return false;
+	            }
+	            var nodes = root.childNodes;
+	            for(var i= 0,len=nodes.length;i<len;i++){
+	                var node = nodes[i];
+	                if(node.nodeType != 1){
+	                    continue;
+	                }
+	                var names = node.className.split(/\s+/g);
+	                for(var j= 0,slen=names.length;j<slen;j++){
+	                    if(names[j] == classname) {
+	                        return node;
+	                    }
+	                }
+	                if(node.hasChildNodes()){
+	                   var result = selectorByClassName(node,classname);//
+	                    if(result){
+	                        return result;
+	                    }
+	                }
+	            }
+	            return false;
+	        }
+	        Dialog.prototype.draw = function(){
+	            var map  = this._map;
+	            var pixel = map.pointToOverlayPixel(this.point);
+	            var left = this._offsetLeft.replace("px",'');
+	            left = parseInt(left);
+
+	            this._div.style.left = pixel.x+left-35 +"px";
+	            this._div.style.top = pixel.y-105  + "px";
+	        }
+	        //关闭事件
+	        J.Dialog = Dialog;
+	    })(J);
+	    </script>
+
+
+	<script type="text/javascript">
+
+			var huodongId = $("#huodongId").val();
+		    $.ajax({
+				url : "loupanMapJson.action" + "?huodong.huodongId=" + huodongId,
+				type : "POST",
+				dataType : "json",
+
+				success:successFun,
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+				}
+			});
+
+			function successFun(json){
+// 				console.log("data:",json);
+			    var pointDataSource = [];
+
+				if(null==json){
+					return;
+				}
+
+			    var mainLat;
+			    var mainLng;
+			    $.each(json,function(entryIndex,entry){
+			    	var baiduLat = entry['baiduLat'];
+			    	var baiduLng = entry['baiduLng'];
+					if(baiduLat>0 && baiduLng>0){
+				    	var loupanName = entry['loupanName'];
+				    	var html = entry['html'];
+				    	var main = entry['main'];
+				    	if(main==true){
+				    		mainLat =  baiduLat;
+							mainLng =  baiduLng;
+				    	}
+				    	console.log("("+baiduLng+","+baiduLat+") main:"+main);
+						pointDataSource[entryIndex] = {point:(new BMap.Point(baiduLng,baiduLat)),text:loupanName,html:html,main:main}
+					}
+		        });
+
+
+			    var map = new BMap.Map("allmap");            // 创建Map实例
+			    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+			    var point = new BMap.Point(mainLng,mainLat);
+			    var num = 0;
+			    map.centerAndZoom(point,15);                     // 初始化地图,设置中心点坐标和地图级别。
+			    dataSource = new BMap.Point(mainLng,mainLat);
+				var centerPoint = null;
+			    var markDataArray=[];//保存初始的每个标签数组，方便计算出每个小标签的宽度
+			    map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+			    for (var i = 0,len= pointDataSource.length;i<len;i++){
+			        var mark = new J.Mark(pointDataSource[i]);
+			        map.addOverlay(mark);
+			        if(pointDataSource[i].main){
+			            centerPoint = pointDataSource[i].point;
+			         }
+
+			    }
+			    //add by jianglun  begain
+			    map.addEventListener('resize',function(){
+			        map.panTo(centerPoint);
+			    })
+			    var originateWidth = 0;
+	            var originateHeight = 0;
+
+	            document.getElementById("full_screen").onclick=function(){
+	                //var width = document.body.clientWidth;
+	                var width = window.screen.availWidth;
+	               // var height = document.body.clientHeight;
+	                var height = window.screen.availHeight;
+	                var mapCotent = document.getElementById("allmap");
+	                originateHeight = mapCotent.style.height;
+	                originateWidth = mapCotent.style.width;
+	                mapCotent.style.width=width+"px";
+	                mapCotent.style.height= height+"px";
+	                this.style.display="none";
+	                document.getElementById("exit_screen").style.display="block";
+	                document.getElementById("map_content").className="full_view";
+	                map.panTo(centerPoint);
+
+	            }
+	            document.getElementById("exit_screen").onclick=function(){
+	                var mapCotent = document.getElementById("allmap");
+	                mapCotent.style.width=originateWidth;
+	                mapCotent.style.height= originateHeight;
+	                this.style.display="none";
+	                document.getElementById("full_screen").style.display="block";
+	           		var mapContent = document.getElementById("map_content");
+	                mapContent.className="";
+					mapContent.style.border="1px solid #FF9900";
+	           //		document.getElementById("map_content"
+	               /*  document.getElementById("map_content").style.width="800px";
+ */
+	                map.panTo(centerPoint);
+	            }
+	          //add by jianglun  end
+
+			    var point = pointDataSource[0].point;
+			    for(var i = 0;i<pointDataSource.length;i++){
+			        if(pointDataSource[i].point!= point){
+			            map.getDistance(point,pointDataSource[i].point);
+			            var polyline = new BMap.Polyline([point,pointDataSource[i].point], {strokeColor:"red", strokeWeight:4, strokeOpacity:0.5});  //定义折线
+			            map.addOverlay(polyline);   //添加折线到地图上
+			            lineDataSource.push(polyline);
+			            var label = createLabel(point,pointDataSource[i].point);
+			            labelDataSource.push(label);
+			            map.addOverlay(label);
+			        }
+			    }
+			    function createLabel(startPoint,endPoint){
+			        var x = Math.min(startPoint.lng,endPoint.lng)+Math.abs(startPoint.lng-endPoint.lng)/2;
+			        var y = Math.min(endPoint.lat,startPoint.lat)+Math.abs(startPoint.lat-endPoint.lat)/2;
+			        var point = new BMap.Point(x,y);
+			        var lenght = map.getDistance(startPoint,endPoint);
+			        var text = "相距"+parseInt(lenght)+"米";
+			        var label = new BMap.Label(text,{position:point,offset:new BMap.Size(0,-10)});
+			       label.setZIndex(0);
+			        return label;
+			    }
+
+			}
+
+
+		</script>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    
+</body></html>

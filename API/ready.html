@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ready事件测试</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script type="text/javascript" src="jquery-1.8.3.js"></script>
+    <!--<script type="text/javascript">
+        document.onreadystatechange= function(e){
+            console.log(document.readyState);
+        }
+    </script>-->
+</head>
+<!--<script>console.log(document.body||'asdfasdf')</script>-->
+<body>
+<div>
+   <!-- <script>console.log($.isReady,'jquery is readdy',!document.body)</script>
+
+    <script>console.log(document.body||'asdfasdf')</script>-->
+    <img data-src="http://test.lunjiang.dev.aifang.com/php/ready.php"/>
+
+    <input class="btn" type="button" value="button 1"/>
+    <a href="index.html">this is a href</a>
+    <%title%>
+    <input type="button" value="test for progation" id="btnEvent"/>
+    <script type="text/javascript">
+//        document.getElementById("btnEvent").addEventListener('click',function(){
+//            alert("bubble");
+//        },false)
+        $(document).ready(function(){
+            $(document).on('click',".btn",function(){
+                  $(document.body).append($(this).clone());
+                var img = document.createElement("img");
+                img.src= "http://test.lunjiang.dev.aifang.com/jquery_ani/jquery%E7%89%B9%E6%95%88,js%E7%89%B9%E6%95%88,css%E7%BE%A4%20185668397,jquery%E6%95%99%E7%A8%8B_files/img02.jpg";
+                img.onload = function(){
+                    alert("this is img load event");
+                }
+                document.body.appendChild(img);
+            });
+        })
+
+        window.onload= function(){
+           alert("img load event")
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+</div>
+<div type="text/html" id="txtHTML">
+    <%title%>
+</div>
+
+<script type="text/javascript">
+    alert( document.getElementById("txtHTML").getBoundingClientRect().left);
+    </script>
+</body>
+</html>

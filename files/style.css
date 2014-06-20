@@ -1,0 +1,1498 @@
+body{
+    font-size:16px;
+    margin:0;
+    padding:0;
+    color:#545454;
+    font-family: Verdana,Tahoma,"Microsoft YaHei",  \5b8b\4f53 ;
+    background:url("/afmsc/2/bg.gif") repeat center center;
+}
+div, ul, li, a, dl, dt, dd, em, i {
+    margin:0;
+    padding:0;
+    list-style:none;
+    font-style: normal;
+}
+a:link, a:visited, a:active {
+    color:#00c;
+    outline:medium none;
+    text-decoration:none;
+}
+a:hover{
+    color:#f60;
+}
+input,textarea{
+    font-family: "Microsoft YaHei", \5b8b\4f53 ,arial,sans-serif;
+}
+.clear{
+    clear:both;
+    margin:0;
+    padding:0;
+    height:0;
+    overflow:hidden;
+}
+.container{
+    width:100%;
+    overflow:hidden;
+}
+
+
+    /**== content ==**/
+    .content{
+        margin:0 auto;
+        height:100%;
+        overflow:hidden;
+    }
+        .btn{
+            background:#f3f3f3 url("/afmsc/2/msc_bg.png") no-repeat 0 0;
+            overflow:hidden;
+            border:0;
+            color:#0c3;
+            vertical-align:middle;
+            outline:0;
+            font-size:20px;
+            cursor:pointer;
+
+            /*text-shadow:0px 1px 1px rgba(255,255,255,0.4);
+            -moz-border-radius:5px;
+            -moz-box-shadow:1px 1px 5px rgba(0,0,0,0.4);
+            -webkit-border-radius:5px;
+            -webkit-box-shadow:1px 1px 5px rgba(0,0,0,0.4);*/
+        }
+        .btn_login{
+            position:absolute;
+            top:20px;
+            right:30px;
+            background-position:0 -200px;
+            width:111px;
+            height:111px;
+            font-size:28px;
+            font-family: "Microsoft YaHei", \5b8b\4f53 ,arial,sans-serif;
+        }
+        .btn_sure{
+            background-position:0 0;
+            width:151px;
+            height:41px;
+            letter-spacing:8px;
+        }
+        .btn_sure1{
+            background-position:0 -44px;
+            width:121px;
+            height:41px;
+        }
+        .btn_pwd{
+            background-position:0 -314px;
+            width:121px;
+            height:29px;
+            font-size:15px;
+        }
+        .btn_add{
+            background-position:0 -88px;
+            width:101px;
+            height:31px;
+            font-size:16px;
+            color:#363636;
+            cursor:pointer;
+        }
+        .i_err{
+            color:#f00;
+        }
+        .i_gre{
+            color:#090;
+        }
+        .equal{
+            padding-bottom:9999px;
+            margin-bottom:-9999px;
+        }
+
+    /**== footer ==**/
+    .footer{
+        position:absolute;
+        top:100%;
+        margin-top:-75px;
+        width:100%;
+        height:75px;
+        overflow:hidden;
+        text-align:center;
+        font-size:12px;
+        color:#999;
+    }
+    #footer{
+        position:static;
+        margin-top:50px;
+    }
+
+        .blank{
+            height:6px;
+            overflow:hidden;
+            width:100%;
+            background:#fff;
+        }
+        .copyright{
+            padding-bottom:4px;
+        }
+
+
+
+/**************** login.html ****************/
+
+    /**== con_login ==**/
+    .con_login{
+        width:450px;
+        font-size:18px;
+    }
+
+        /*= logo =*/
+        .con_login .logo{
+            margin:105px 0 0;
+            width:445px;
+            height:58px;
+            overflow:hidden;
+        }
+
+        /*= login =*/
+        .login{
+            position:relative;
+            width:440px;
+            height:210px;
+            border:1px solid #797979;
+            background:#e2bfac;
+        }
+        .myform{
+            margin:4px;
+            padding:6px 0 0 38px;
+            width:392px;
+            height:194px;
+            border:1px solid #d7d7d7;
+            background:#f2f2f2;
+        }
+
+        .box{
+            margin:6px 0 0;
+            height:35px;
+            line-height:35px;
+        }
+        .box label, .box .txt, .box span, .box1 i{
+            float:left;
+        }
+        .box label{
+            width:80px;
+            vertical-align:middle;
+            overflow:hidden;
+        }
+        .txt{
+            border:1px solid #b2b0b0;
+            width:150px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            color:#656565;
+            vertical-align:middle;
+
+            text-shadow: 0px 1px 1px rgba(255,255,255,0.4);
+            border:1px solid rgba(0,0,0,0.4);
+
+            -moz-border-radius: 2px;
+            -moz-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.4);
+            -webkit-border-radius: 5px;
+            -webkit-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.4);
+        }
+        .box1{
+            height:31px;
+            line-height:31px;
+        }
+        .box1 .spa{
+            width:109px;
+            height:29px;
+            /*border:1px dashed #666;*/
+            text-align:center;
+        }
+        .box1 i{
+            margin:4px 0 0 12px;
+            width:20px;
+            height:22px;
+            overflow:hidden;
+            background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -522px;
+            vertical-align:middle;
+        }
+
+        .box2{
+            height:18px;
+            line-height:18px;
+            _height:22px;
+            _line-height:22px;
+        }
+        .box2 .err{
+            color:#f00;
+            height:18px;
+            overflow:hidden;
+        }
+
+        .color_ac{
+            color:#f60;
+        }
+
+
+
+
+/**************** list.html ****************/
+
+    /**== header ==**/
+    .header{
+        height:57px;/*51 to 60*/
+        overflow:hidden;
+        /*border-bottom:6px solid #fff;*/
+        background:#d6e5f5;
+    }
+
+        .header .logo{
+            margin:0 auto;
+            padding:1px 0 0;
+            width:1024px;
+            height:48px;
+            overflow:hidden;
+        }
+        .header .logo img{
+            width:444px;
+            height:45px;
+            overflow:hidden;
+            display:block;
+            float:left;
+        }
+        .logo .a_pwd:link, .logo .a_pwd:visited, .logo .a_pwd:hover,
+        .logo .a_exit:link, .logo .a_exit:visited, .logo .a_exit:hover{
+            float:right;
+            height:31px;
+            line-height:31px;
+            overflow:hidden;
+            background:url("/afmsc/2/icon_bg.gif") no-repeat right -436px;
+            border:1px dashed #797979;
+            color:#666;
+            display:block;
+            float:right;
+            width:69px;
+        }
+        .logo .a_exit:link, .logo .a_exit:visited, .logo .a_exit:hover{
+            width:39px;
+        }
+        .logo .a_pwd:link, .logo .a_pwd:visited, .logo .a_pwd:hover{
+            padding:0 38px 0 8px;
+        }
+        .logo .a_exit:link, .logo .a_exit:visited, .logo .a_exit:hover{
+            background-position:right -476px;
+            padding:0 29px 0 8px;
+            margin:0 7px 0 16px;
+        }
+        .header .blank{
+            height:8px;
+            background:#fff;
+            background: -moz-linear-gradient(top, #a9a9a9, #f1f1f1);
+            background: -webkit-gradient(linear, 0% 0%, 0 100%, from(#a9a9a9), to(#f1f1f1));
+            background: -o-linear-gradient(top,#a9a9a9, #f1f1f1);
+        }
+
+    /**== con_login ==**/
+    .con_list{
+        /*position:relative;
+        padding:0 0 0 171px;
+        width:854px;
+        min-height:370px;
+        _height:370px;*/
+        width:1025px;
+        overflow:hidden;
+    }
+
+        /*= nav_l =*/
+        .nav_l{
+            float:left;
+            /*position:absolute;
+            top:0;
+            left:0;*/
+            width:171px;
+            background:#d6e5f5;
+        }
+            .nav_l dt, .nav_l dd{
+                margin:0 1px 6px 0;
+            }
+            .nav_l dt, .nav_l .dd_a{
+                padding:8px 0 0 60px;
+                width:109px;/*169 to 109*/
+                height:39px;
+                overflow:hidden;
+            }
+            .nav_l dt{
+                background:url("/afmsc/2/icon_bg.gif") no-repeat 10px -124px;
+                font-size:14px;
+                line-height:16px;
+            }
+            .nav_l .dt_blue{
+                background-position:10px -176px;
+            }
+            .nav_l dt span{
+                color:#0c0;
+            }
+
+            .nav_l dd{
+                background:#fff;
+            }
+            .nav_l .dd_a:link, .nav_l .dd_a:visited, .nav_l .dd_a:hover{
+                display:inline-block;
+                line-height:28px;
+                background:url("/afmsc/2/icon_bg.gif") no-repeat 15px -378px;
+            }
+            .nav_l .dd_hd:link, .nav_l .dd_hd:visited, .nav_l .dd_hd:hover{
+                background-position: 15px -378px;
+            }
+            .nav_l .dd_rw:link, .nav_l .dd_rw:visited, .nav_l .dd_rw:hover{
+                background-position:16px -327px;
+            }
+            .nav_l .dd_hj:link, .nav_l .dd_hj:visited, .nav_l .dd_hj:hover{
+                background-position:16px -70px;
+            }
+            .nav_l .dd_gj:link, .nav_l .dd_gj:visited, .nav_l .dd_gj:hover{
+                background-position:16px -278px;
+            }
+            .nav_l .dd_zh:link, .nav_l .dd_zh:visited, .nav_l .dd_zh:hover{
+                background-position:17px -227px;
+            }
+            .nav_l .dd_mm:link, .nav_l .dd_mm:visited, .nav_l .dd_mm:hover{
+                background-position:-12px -427px;
+            }
+            .nav_l .dd_zj:link, .nav_l .dd_zj:visited, .nav_l .dd_zj:hover{
+                background-position:16px -1462px;
+            }
+ fix icon
+            .nav_l dd a{
+                color:#333;
+            }
+            .nav_l .dd_active{
+                background-color:#ff9f40;
+                font-weight:700;
+            }
+            .nav_l .dd_active a{
+                color:#fff;
+            }
+
+        /*= con_r =*/
+        .con_r{
+            float:left;
+            padding-left:5px;
+            width:849px;
+        }
+            /* tab */
+            .con_r .tab{
+                padding:5px 0 0;
+                width:841px;
+                height:36px;
+                line-height:36px;
+            }
+            .tab .a_tab, .tab .a_tab:link, .tab .a_tab:visited{
+                color:#333;
+                float:left;
+                width:124px;
+                height:36px;
+                background:url("/afmsc/2/msc_bg.png") no-repeat 0 -122px;
+                text-indent:20px;
+                position:relative;
+                zoom:1;
+            }
+            .tab .active, .tab .active:link, .tab .active:visited{
+                background-position:0 -161px;
+                color:#f60;
+            }
+
+            /* list */
+            .con_r .list{
+                margin:-1px 8px 0 0;
+                padding:12px 14px;
+                width:811px;
+                border:1px solid #f90;
+                background:#fff;
+            }
+
+            .list_h{
+                margin:0 0 7px;
+                height:31px;
+                line-height:31px;
+                overflow:hidden;
+                position:relative;
+            }
+            .list_h .btn_add{
+                position:absolute;
+                top:0;
+                right:0;
+                color:#0c3;
+            }
+
+            .list_div{
+                padding:12px 0 10px;
+                width:809px;
+                background:#929292;
+                color:#fff;
+                border:1px solid #797979;
+                border-bottom:0;
+            }
+
+            .list em{
+                float:left;
+            }
+            .list .em_01{
+                padding:0 6px 0 0;
+                width:64px;
+                text-align:center;
+            }
+            .list .em_02{
+                width:155px;
+            }
+            .list .em_03{
+                width:150px;
+            }
+            .list .em_04{
+                width:240px;
+            }
+            .list .em_05{
+                width:130px;
+            }
+            .list .em_06{
+                width:62px;
+            }
+            .em_01 i{
+                display:inline-block;
+                width:32px;
+                height:32px;
+                overflow:hidden;
+                background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -130px;
+                vertical-align:top;
+            }
+            .em_01 .i_blue{
+                background-position:0 -182px;
+            }
+
+            .list_box{
+                width:809px;
+                border:1px solid #797979;
+            }
+            .list_ul{
+                width:807px;
+                /*border:1px dashed #aeaeae;*/
+                overflow:hidden;
+                line-height:24px;
+            }
+            .list_ul li{
+                float:left;
+                width:807px;
+                padding:3px 0;
+            }
+            .list_ul .odd{
+                background:#f2f2f2;
+            }
+
+
+
+/**************** account.html ****************/
+        .form2_ul{
+            margin:30px 0 0 80px;
+            overflow:hidden;
+            width:672px;
+        }
+        .form2_ul li{
+            margin:0 0 28px;
+            width:672px;
+            position:relative;
+            z-index:0;
+            zoom:1;
+        }
+        .form2_ul label, .form2_ul .box_qx{
+            display:inline-block;
+        }
+        .form2_ul label{
+            padding:0 0 0 17px;
+            width:100px;
+            vertical-align:middle;
+        }
+        .form2_ul .lbl_for{
+            padding:0;
+            width:auto;
+        }
+
+        .li_qx label{
+            vertical-align:top;
+        }
+
+        .form2_ul .li_act{
+            position:relative;
+            z-index:10;
+        }
+        .li_act .ul_act{
+            padding:5px 0;
+            position:absolute;
+            top:32px;
+            left:122px;
+            width:338px;
+            border:1px solid #f90;
+            background:#fff;
+        }
+        .ul_act li {
+            width:321px;
+            cursor:pointer;
+            display:block;
+            list-style-type:none;
+            margin:0;
+            overflow:hidden;
+            padding:2px 0 0 17px;
+            height:20px;
+            font-size:16px;
+        }
+        .ul_act .selected{
+           color:#f60;
+        }
+        .ul_act .em_ll, .ul_act .em_rr{
+            float:left;
+            height:20px;
+            line-height:18px;
+            overflow:hidden;
+        }
+        .ul_act .em_ll{
+            width:126px;
+        }
+        .ul_act .em_rr{
+            width:190px;
+        }
+        .ul_act .clear{
+            display:inline-block;
+        }
+
+        .form2_ul select{
+            height:32px;
+            font-size:16px;
+            width:155px;
+            line-height:20px;
+            vertical-align:middle;
+        }
+
+
+        /* li_tip -- success */
+        .li_tip{
+            padding:8px 0 0;
+            border-top:1px dashed #d7d7d7;
+        }
+        .li_tip .i_suc{
+            display:inline-block;
+            background:url("/afmsc/2/icon_bg.gif") no-repeat 0 0;
+            width:60px;
+            height:58px;
+            overflow:hidden;
+        }
+        .tip{
+            display:inline-block;
+            padding-left:10px;
+            vertical-align:top;
+            color:#0c3;
+            line-height:28px;
+            font-size:18px;
+        }
+
+
+
+/**************** pwd.html ****************/
+        .form4{
+            padding:0 0 175px;
+        }
+        .form4 .form2_ul label{
+            text-align:right;
+            padding-right:10px;
+        }
+        .form4 .form2_ul li{
+            margin-bottom:6px;
+        }
+        .form4 .btn_sure1{
+            margin:16px 0;
+        }
+
+
+
+
+
+/**************** createAct.html ****************/
+.form_k {
+    margin:30px 0 0 61px;
+}
+.form_k span{
+    vertical-align: middle;
+}
+.form_k label{
+    text-align: right;
+    width:116px;
+    padding:0;
+    padding-right:19px;
+
+}
+.act_ul label{
+    width:80px;
+}
+.txt_k{
+    width:403px;
+    height:33px;
+    color:#323232;
+    text-align: left;
+}
+/* .txt_t{ */
+/*     width:800px; */
+/*     height:33px; */
+/*     color:#323232; */
+/*     text-align: left; */
+/* } */
+.text_k{
+    width:403px;
+    height:159px;
+    resize: none;
+    vertical-align:top;
+    text-align: left;
+    color:#323232;
+    line-height:18px;
+}
+.detail_k label{
+    /*vertical-align:top;*/
+}
+.form_k select{
+    color:#FE6500;
+    width:80px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 2px;
+    -moz-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.4);
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.4);
+}
+.form_k .li_qx_k select{
+    width:140px;
+}
+.li_qx_k option{
+
+}
+.form_k option{
+    color:#545454;
+}
+.form_k .m_k{
+    vertical-align: top;
+}
+.li_qx_k label{
+    vertical-align: middle;
+}
+.va_k label{
+    vertical-align:top;
+}
+.box_qx_k{
+    display:inline-block;
+    vertical-align: top;
+}
+.va_k label,.va_k .box_qx_k{
+    float:left;
+}
+.va_k .box_qx_k{
+    margin-top:-10px;
+    _margin-top:0;
+}
+.m_k,.lp_name_k,.kanfangtuan{
+    float: left;
+}
+
+.box_qx_k .txt{
+    width:129px;
+    height:33px;
+
+    color:#656565;
+    display:none;
+}
+.box_qx_k  .li_k{
+    margin-bottom:5px;
+    height:37px;
+    line-height:37px;
+
+}
+.act_k span{
+    color:#FE6500;
+}
+.li_k input, .li_k span, .li_k label{
+    vertical-align: middle
+}
+.li_k label{
+    width:auto;
+    padding:0;
+    float:none;
+}
+.box_qx_k .act_k .txt{
+    display:inline-block;
+}
+.msm_k .text_k{
+    line-height: 25px;
+    height:75px;
+}
+.kanfangtuan{
+    display:inline-block;
+}
+.kanfangtuan .kf_k{
+    display:inline-block;
+    float:left;
+    margin-bottom:7px;
+}
+.kanfangtuan .i_t_k{
+    width:24px;
+    height:24px;
+    margin:5px 0 0 6px;
+    display:inline-block;
+    float:left;
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -853px;
+    cursor: pointer;
+}
+.kanfangtuan .i_f_k{
+    width:24px;
+    height:24px;
+    margin:5px 0 0 6px;
+    display:inline-block;
+    float:left;
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -890px;
+}
+.kanfangtuan .cho_k{
+    color:#FE6500;
+    padding:8px 11px 7px 10px;
+    border:1px dashed #656565;
+    display:inline-block;
+    margin-bottom:4px;
+    float:left;
+}
+.kanfangtuan .cho_k i{
+    color:#323232;
+}
+.form_k .lp_name_k{
+    display:inline-block;
+    vertical-align: top;
+}
+.form_k .txt1_k{
+    width:129px;
+    color:#656565;
+}
+.li_tip_k .tip{
+    height:52px;
+    line-height: 58px;
+}
+
+
+
+
+
+/**************** editAct.html ****************/
+.form_k .num_k{
+    vertical-align: top;
+}
+.form_k .a_s_k input,.form_k .a_s_k span{
+    vertical-align: middle;
+}
+.a_s_k div{
+    display:inline-block;
+    vertical-align: middle;
+}
+.form2_ul .log_k{
+    color:#666;
+    padding-top:11px;
+}
+.log_k label{
+    text-align: right;
+    vertical-align: top;
+    height:23px;
+}
+.log_k table{
+    display:inline-block;
+    vertical-align: top;
+    border:1px dashed #545454;
+    padding:6px 57px 12px 16px;
+}
+.form_k .num_k,.form_k .lp_name_k{
+    display:inline-block;
+    float:left;
+}
+.a_s_k .act_k{
+    color:#f60;
+}
+.a_s_k label,.a_s_k span,.a_s_k input{
+    float:left;
+    display:inline-block;
+}
+.log_k label,.log_k table{
+    float:left;
+}
+
+
+/**************** proAct.html ****************/
+.form_k .s_k{
+    vertical-align: middle;
+    padding-left:15px;
+}
+.form_k .cho_k i{
+    color:#333;
+    padding:0px;
+}
+.form_k .cho_k .colo_k{
+    color:#f60;
+
+}
+
+
+
+
+
+/**************** actList.html ****************/
+.box_k{
+    border:1px solid #aeaeae;
+    border-top:0;
+}
+.ul_k{
+    width:807px;
+
+}
+.list_k li{
+}
+.div_k em{
+    text-align: center;
+    height:29px;
+    float:left;
+}
+.list_k em{
+    text-align:left;
+    display:inline-block;
+    vertical-align: middle;
+    line-height:29px;
+    float:left;
+    outline:none;
+}
+.list .b .em_02{
+    color:#369;
+    font-weight:800;
+}
+
+.ul_k li{
+    padding:6px 0;
+}
+.list_k em i{
+    color:#ff6600;
+}
+.ul_k em a{
+    float:left;
+    padding-right:15px;
+    display:inline-block;
+}
+.ul_k em span{
+    display:inline-block;
+    float:left;
+    color:#999;
+}
+.ul_k em .r_k:link,.ul_k em .r_k:visited,.ul_k em .r_k:hover{
+    color:#ff6600;
+    float:right;
+
+}
+.list_k .em_01{
+    width:49px;
+    padding:0;
+}
+.list_k .em_02{
+    width:230px;
+}
+.list_k .em_03{
+    width:160px;
+}
+.list_k .em_04{
+    width:120px;
+}
+.list_k .em_05{
+    width:83px;
+}
+.list_k .em_06{
+    width:130px;
+}
+/*.list_k .em_06 a:visited{
+    color:#f60;
+}*/
+
+
+
+
+
+/**************** cusList.html ****************/
+.list_h1_k{
+    line-height: 27px;
+    font-size: 18px;
+    margin-bottom:5px;
+    position:relative;
+}
+.list_h1_k select {
+    color: #FE6500;
+    width: 160px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 2px;
+    -moz-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.4);
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: inset 0px 0px 2px rgba(0,0,0,0.4);
+    height: 32px;
+    font-size: 16px;
+}
+
+.list_h1_k .sheetNumSelect {
+    color: #FE6500;
+    width: 121px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    height: 29px;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.list_h1_k option{
+    color:#545454;
+}
+.list_h1_k span{
+    padding-right:19px;
+}
+.list_h1_k select{
+    margin-left:31px;
+}
+.list_h2_k{
+    overflow:auto;
+    height:auto;
+    padding-left:5px;
+    line-height: 35px;
+}
+.list_h2_k object{
+    position:absolute;
+    right:0;
+    top:35px;
+}
+.i_yell_k{
+    color:#ff6600;
+}
+
+.list_h .download_k{
+    width:121px;
+    background-position: 0 -314px;
+    height:29px;
+    color:#003399;
+    _right:14px;
+}
+.fileStyle{
+    position:absolute;
+    top:35px;
+    right:0;
+    background:url("/afmsc/2/msc_bg.png") no-repeat 0 -314px;
+    height:29px;
+    width:121px;
+    overflow:hidden;
+    border:0;
+    font-size:16px;
+    color:#039;
+}
+.cus_k .em_01{
+    width:170px;
+}
+.cus_k .em_02{
+    width:82px;
+}
+.cus_k .em_03{
+    width:125px;
+}
+.cus_k .em_04{
+    width:115px;
+}
+.cus_k .em_05{
+    width:75px;
+}
+.cus_k .em_06{
+    width:110px;
+}
+.cus_k .em_07{
+    width:110px;
+}
+
+.cus_k .origin{
+    width:142px;
+}
+
+
+
+
+
+/**************** follList.html ****************/
+.tab .tab_k{
+    text-align: left;
+    text-indent: 0.9em;
+}
+.cus_k .male_k{
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -930px;
+    padding-left:44px;
+    margin-left:8px;
+    width:118px;
+    text-align: left;
+}
+.cus_k .female_k{
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -974px;
+    padding-left:44px;
+    margin-left:8px;
+    width:118px;
+    text-align: left;
+}
+.cus_k .uknow_k{
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -1023px;
+    padding-left:44px;
+    margin-left:8px;
+    width:118px;
+    text-align: left;
+}
+.cus_k .em_01 span{
+    color:#330099;
+}
+
+
+
+
+/**************** taskList.html ****************/
+.foll_k .em_03{
+    width:200px;
+}
+.foll_k .em_04{
+    width:90px;
+}
+.foll_k .em_06{
+    width:160px;
+}
+.table_k{
+    text-align: left;
+    width:809px;
+    margin-bottom:12px;
+}
+.table_k .thead_k{
+    height:31px;
+    width:747px;
+    font-weight:normal;
+    color:#fff;
+    line-height:31px;
+    border-bottom:#929292 1px solid;
+    padding-left:62px;
+    overflow:hidden;
+    background:url("/afmsc/2/msc_bg.png") no-repeat 0 -382px;
+    position:relative;
+}
+.table_k .thead_k_div{
+    position:absolute;
+    top:0;
+    left:179px;
+    padding:0 0 0 15px;
+    width:613px;
+    color:#333;
+    border:1px solid #a1a1a1;
+}
+.thead_k_div span{
+    color:#0c3;
+    margin:0 30px 0 0;
+}
+.thead_k_div a:link, .thead_k_div a:visited, .thead_k_div a:hover{
+    position:absolute;
+    top:0;
+    right:10px;
+    color:#666;
+    font-size:14px;
+}
+.table_k .table_con_k{
+    border:1px solid #a1a1a1;
+    border-top:0;
+    background-color:#f2f2f2;
+    padding:6px 0 7px 12px;
+}
+.table_con_k dl{
+    height:91px;
+    width:795px;
+}
+.table_k dd{
+    float:left;
+    padding:3px 0 4px;
+    color:#333366;
+}
+.table_k .dd1_k{
+    width:305px;
+    border-right:1px dashed #79c579;
+}
+.table_k .dd2_k{
+    width:238px;
+    padding-left:8px;
+
+}
+.table_k .dd3_k{
+    width:125px;
+}
+.table_k .dd4_k{
+    width:111px;
+    padding:0;
+}
+.table_k .t_l_k{
+    height:21px;
+    line-height: 21px;
+    overflow:hidden;
+}
+.table_k .t_l_k span{
+    display:inline-block;
+}
+.table_k .t_l_k i{
+    color:#00cc00;
+}
+.table_k .t_l_k .f_allot_k{
+    color:#009900;
+}
+.table_k .t_l_k .unf_allot_k{
+    color:#f60;
+}
+.table_k .t_i_k{
+    width:128px;
+    height:18px;
+    line-height:18px;
+    padding-top:49px;
+    margin-top:13px;
+    text-align: center;
+}
+.table_k .f_k{
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 42px -552px;
+    color:#00cc00;
+}
+.table_k .unf_k{
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 42px -619px;
+    color:#f60;
+}
+.table_k .t_b_k{
+    border:0;
+    outline:0;
+    width:111px;
+    height:30px;
+    background:transparent url("/afmsc/2/msc_bg.png") no-repeat 0px -1288px;
+    color:#013398;
+    cursor: pointer;
+}
+.table_k .unf_b_k{
+    background:transparent url("/afmsc/2/msc_bg.png") no-repeat 0px -1353px;
+    color:#6d6d6d;
+}
+.div_k em{ float:left;text-align:left}
+.list .div_k em{ float:left;text-align:left; }
+.div_k .em_01{}
+
+.genmsg{
+    width:100px;
+    height:25px;
+}
+
+/*2012.05.22 add*/
+.table_k .t_l_k .i_star{
+    display:inline-block;
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0px -1394px;
+    width:20px;
+    height:17px;
+    overflow:hidden;
+    vertical-align:top;
+    cursor:pointer;
+}
+.table_con_k .div_log{
+    padding:0 0 5px;
+    position:absolute;
+    top:-7px;
+    left:60px;
+    width:180px;
+    height:auto;
+    border:1px solid #090;
+    background:#d6e5f5;
+    overflow:hidden;
+    font-size:13px;
+    z-index:2;
+}
+.div_log dt{
+    margin:5px 4px;
+    padding:0 0 0 2px;
+    height:22px;
+    line-height:16px;
+    border-bottom:1px dashed #090;
+}
+.div_log .i_close{
+    margin:0 0 0 71px;
+    _margin:0 0 0 58px;
+    display:inline-block;
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0px -1436px;
+    width:17px;
+    height:17px;
+    overflow:hidden;
+    vertical-align:top;
+    cursor:pointer;
+}
+.div_log dd{
+    padding:0 0 0 7px;
+}
+
+.list_s{
+    padding:0 0 0 4px;
+    font-size:13px;
+    color:#333;
+}
+.list_s_1 .s_select1, .list_s_1 .s_select2{
+    width:80px;
+    height:24px;
+    line-height:24px;
+    border:1px solid #bebebe;
+}
+.list_s_1 .s_select1{
+    margin:0 38px 0 0;
+}
+.list_s_1 .s_state{
+    margin:0 0 0 38px;
+}
+.list_s_1 .txt_date{
+    width:60px;
+    height:22px;
+    border:1px solid #bebebe;
+}
+.list_s_2{
+    margin:5px 0 5px 13px;
+}
+.list_s_2 .txt_pwd{
+    margin:0 5px 0 0;
+    padding:2px 5px;
+    width:550px;
+    height:20px;
+    line-height:20px;
+    border:1px solid #bebebe;
+    color:#999;
+    font-size:13px;
+}
+.list_s_2 .txt_f{
+    color:#333;
+}
+.list_s_2 .btn_se{
+    background-position:0 -1464px;
+    width:101px;
+    height:26px;
+    line-height:26px;
+    font-size:13px;
+    letter-spacing:10px;
+    color:#333;
+    vertical-align:top;
+}
+
+/**************** call.html ****************/
+.tsr_div{
+    margin:0 0 10px;
+    padding:0 0 10px;
+    border-bottom:1px dashed #0c3;
+    position:relative;
+}
+.ul_select{
+    overflow:hidden;
+    width:300px;
+}
+.ul_select li{
+    margin:0 0 5px;
+    float:left;
+    width:300px;
+    height:28px;
+    overflow:hidden;
+}
+.ul_select li input{
+    height:22px;
+    line-height:22px;
+    border:1px solid #ddd;
+}
+.li_result{
+    position:relative;
+}
+.li_result select{
+    position:absolute;
+    left:86px;
+    top:0;
+    width:200px;
+    z-index:0;
+}
+/*.li_result .myIframe{
+    position:absolute;
+    left:86px;
+    top:0;
+    z-index:1;
+    dispaly:none;
+    width:100px;
+    height:22px;
+    filter: Alpha(opacity=10);
+    -moz-opacity:0.1;
+    opacity:0.1;
+}*/
+
+.tsr_div .con_wid{
+    width:130px;
+    height:24px;
+    line-height:24px;
+}
+.tsr_div .get_btn{
+    position:absolute;
+    left:300px;
+    top:104px;
+    background-position:0 -1510px;
+    width:141px;
+    height:51px;
+}
+.tsr_div .get_btn1{
+    position:absolute;
+    left:300px;
+    top:40px;
+    background-position:0 -1510px;
+    width:141px;
+    height:51px;
+}
+.tsr_div .get_btn2{
+    position:absolute;
+    left:450px;
+    top:40px;
+    background-position:0 -1510px;
+    width:141px;
+    height:51px;
+}
+
+.tsr_div .get_btn3{
+    position:absolute;
+    left:280px;
+    top:-2px;
+    background-position:0 -1510px;
+    width:141px;
+    height:51px;
+}
+.call_list .thead_k{
+    background-position:0 -484px;
+}
+.call_list .i_img{
+    float:left;
+    width:50px;
+    background:url("/afmsc/2/icon_bg.gif") no-repeat 0 -925px;
+    height:35px;
+}
+.call_list .i_img_f{
+    background-position:0 -925px;
+}
+.call_list .i_img_m{
+    background-position:0 -973px;
+}
+.call_list .i_img_u{
+    background-position:0 -1023px;
+}
+.div_i_img{
+    margin:0 10px 0 0;
+    float:left;
+    width:70px;
+    height:72px;
+    border:1px solid #ddd;
+}
+.div_i_img .i_img{
+    background:url("/afmsc/3/icon_bg_02.png") no-repeat 0 0;
+    margin:5px 0 0 5px;
+    width:57px;
+    height:64px;
+}
+.div_i_img .i_img_f{
+    background-position:0 0;
+}
+.div_i_img .i_img_m{
+    background-position:0 -79px;
+}
+.div_i_img .i_img_u{
+    background-position:0 -150px;
+}
+.call_list .call_ul{
+    margin:0 30px 0 0;
+    float:left;
+    width:240px;
+    overflow:hidden;
+}
+.call_list .call_ul li{
+    float:left;
+    border:0;
+    width:240px;
+    height:22px;
+    line-height:22px;
+    overflow:hidden;
+}
+
+.call_list .call_ul li .span_col{
+    color:#0041d9;
+}
+.call_list .call_ul_01{
+    margin:0 15px 0 0;
+}
+.call_list .call_ul_01, .call_list .call_ul_01 li{
+    width:160px;
+}
+.call_list .call_ul_02, .call_list .call_ul_02 li{
+    float:left;
+    width:260px;
+}
+.call_list .call_ul_1, .call_list .call_ul_1 li{
+    width:335px;
+}
+.call_list .call_btn:link, .call_list .call_btn:visited, .call_list .call_btn:hover{
+    float:left;
+    margin-top:5px;
+    width:101px;
+    height:37px;
+    background-position:0 -416px;
+    line-height:37px;
+    text-align:center;
+    color:#0c3;
+    font-family: Verdana,Tahoma,"Microsoft YaHei",  \5b8b\4f53 ;
+}
+
+.call_list .next_time_div{
+    background:url("/afmsc/3/icon_bg.gif") no-repeat -10px -772px;
+    padding:0 0 0 20px;
+    color:#f60;
+}
+.ul_select_01{
+    position:relative;
+    width:650px;
+}
+.ul_select_01 li{
+    width:650px;
+    height:43px;
+}
+.ul_select_01 .li_btn_call{
+    position:absolute;
+    top:0;
+    left:400px;
+    height:45px;
+}
+.li_btn_call .hand_style{
+    width:153px;
+    height:43px;
+}
+
+/*IE6 fixed*/
+/**html,*html body {background-image:url(about:blank);background-attachment:fixed;}*/
+.container{
+    position:relative;
+}
+.div_pop{
+    position:fixed;
+    _position:absolute;
+    bottom:0;
+    right:0;
+    width:92px;
+    height:82px;
+    cursor:pointer;
+    background:url("/afmsc/3/popo.png") no-repeat 0 0;
+}
+* html{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+* html #div_pop {
+    position: absolute;
+
+.hand_style{
+    cursor:pointer;
+}

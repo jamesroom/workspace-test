@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="/jockjs.js"></script>
+    <meta charset="utf-8"/>
+    <title>JSONP跨域</title>
+    <style type="text/css">
+        dt{
+            font-size: 26px;;
+            font-weight: 700;;
+        }
+        dd{
+            margin: 20px 40px 0 ;
+        }
+        li pre{
+            background: rgba(204, 204, 204, 0.19);
+            color: #333;;
+            padding: 10px;;
+        }
+        .code{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<dl>
+   <dt>JSONP？</dt>
+    <dd>script标签中SRC返回的内容会当JS代码执行.</dd>
+
+    <dd>
+        <ul>
+            <li>
+                www.anjuke.com请求zu.anjuke.com
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <pre>
+              window.callack = function(data){
+                    alert(data.msg)
+                }
+                J.g("btnHost").on('click', function(){
+                    var url ='http://zu.anjuke.com/get.php';
+                        J.get({url:url,type:'jsonp',data:{num:num++},callback:'callback'})
+                });
+
+                function getJsonp(url,data){
+                    var url = url.indexOf("?")>-1?url:url+"?";
+                    for(var i in data){
+                        url=url + i+"="+data[i]+"&";
+                    }
+                    var script = document.createElement("script");
+                    var script = document.createElement('script');
+                    script.setAttribute('src', url);
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+
+                </pre>
+                <input type="button" value="send ajax" id="btnHost"/>
+            </li>
+
+            <li>
+                多jsonp跨域同步
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <pre>
+               function Stack(opption) {
+            var stack = [];
+            var defOpts = {
+                duplicate: false,//加入项是否允许重复
+                callback: function () {
+                }
+            }
+
+            function push(task) {
+                !isDuplicate(task) && stack.push(task);
+            }
+
+            function unShift(task) {
+                stack.unshift(task);
+            }
+
+            function isDuplicate(task) {
+                var i = 0, len = stack.length;
+                for (; i < stack.length; i++) {
+                    if (stack[i] === task) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function remove(task) {
+                var i = 0, len = stack.length;
+                for (; i < len; i++) {
+                    if (stack[i] === task) {
+                        delete stack[i];
+                        stack.splice(i, 1);
+                    }
+                }
+                return false;
+            }
+
+            function run(data) {
+                stack.length && (stack.shift()(data) !== false) && run();
+            }
+
+            return {
+                run: run,
+                push: push,
+                unShift: unShift,
+                remove: remove,
+                stack: stack
+            }
+        }
+
+
+
+
+            var stack = new Stack();
+            global.loginDailog.beforeRegister = function (data) {
+                stack.run(data);
+            }
+            stack.push(function(){
+                // 检查用户名是否为空，是否符合要求格式
+                //本地验证
+            });
+            stack.push(function(){
+                // 检查密码是否为空
+                //本地验证
+            });
+            stack.push(function(){
+                // 检查用户名是否重复，发达ajax
+                //远程验证
+                return false;
+
+            });
+            stack.push(function(data){
+                // 检查用户名是否重复callback
+                //远程验证回调
+                if(!data.code){
+                    //success
+                    return;
+                }
+                return false;
+            });
+            stack.push(function(){
+                // 检查验证码是否正确，发达ajax
+                //远程验证
+                return false;
+
+            });
+            stack.push(function(data){
+                // 检查验证码是否正确callback
+                //远程验证回调
+                if(!data.code){
+                    //success
+                    return;
+                }
+                return false;
+            });
+            stack.push(function(){
+                // 发送注册ajax
+                return false;
+            });
+            stack.push(function(data){
+                // 注册callback
+                return false;
+            });
+            stack.run();
+
+            <li class="code">
+            <pre>
+              window.callack = function(data){
+                    alert(data.msg)
+                }
+                J.g("btnHost").on('click', function(){
+                    var url ='http://zu.anjuke.com/get.php';
+                        J.get({url:url,type:'jsonp',data:{num:num++},callback:'callback'})
+                });
+
+                function getJsonp(url,data){
+                    var url = url.indexOf("?")>-1?url:url+"?";
+                    for(var i in data){
+                        url=url + i+"="+data[i]+"&";
+                    }
+                    var script = document.createElement("script");
+                    var script = document.createElement('script');
+                    script.setAttribute('src', url);
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+
+                </pre>
+                <input type="button" value="send ajax" id="btnHost"/>
+            </li>
+
+
+
+
+
+
+        </ul>
+    </dd>
+    <dd>
+        <a href="post.html">post跨域方式</a>
+    </dd>
+</dl>
+<script type="text/javascript">
+    J.s(".btnCode").each(function(k,v){
+        v.on('click',function(){
+            var dom = v.up(0).next().get();
+            dom.style.display=dom.style.display=="block"?"":"block";
+        })
+    })
+    var num=0;
+    window.callback = function(data){
+        alert(data.msg)
+    }
+    J.g("btnHost").on('click', function(){
+        var url ='http://zu.anjuke.com/get.php';
+       // J.get({url:url,type:'jsonp',data:{num:num++},callback:'callback'})
+       getJsonp(url,{num:num++,callback:getHandler(function(d){
+           alert(d.msg)
+
+       })});
+    });
+
+    function getJsonp(url,data){
+        var url = url.indexOf("?")>-1?url:url+"?";
+        for(var i in data){
+            url=url + i+"="+data[i]+"&";
+        }
+        var script = document.createElement("script");
+        var script = document.createElement('script');
+        script.setAttribute('src', url);
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+    var prevHandler = null;
+    function getHandler(fun){
+        prevHandler&&(window[prevHandler] = function(){ });
+        var handler = new Date().getTime();
+        handler= 'callback'+handler;
+        window[handler] = fun;
+        prevHandler= handler;
+        return handler;
+    }
+
+
+    function Stack(opption) {
+        var stack = [];
+        var step =0;
+        var defOpts = {
+            duplicate: false//加入项是否允许重复
+        }
+
+        function push(task) {
+            !isDuplicate(task) && stack.push(task);
+        }
+
+        function unShift(task) {
+            stack.unshift(task);
+        }
+
+        function isDuplicate(task) {
+            var i = 0, len = stack.length;
+            for (; i < stack.length; i++) {
+                if (stack[i] === task) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function remove(task) {
+            var i = 0, len = stack.length;
+            for (; i < len; i++) {
+                if (stack[i] === task) {
+                  //  delete stack[i];
+                    stack.splice(i, 1);
+                    i--;
+                }
+            }
+            return false;
+        }
+
+        function run(data) {
+            stack.length && (stack.shift()(data) !== false) && run();
+            //实际生产环境应该用数组的形式，而不应该删除。
+        }
+
+        return {
+            run: run,
+            push: push,
+            unShift: unShift,
+            remove: remove,
+            stack: stack
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>模拟表单控件</title>
+<style type="text/css">
+/* ----表单控件CSS开始---- ↓ */
+*{margin:0;padding:0;}
+/*background*/
+.SelectR,.WCSelect{background:url(http://js.fgm.cc/learn/lesson9/WellForm/WellForm.gif) no-repeat;}
+/*WCSelect*/
+.SelectR,.WCSelect{float:left;height:21px;}
+.SelectR{width:16px;cursor:pointer;background-position:right -84px;margin-right:5px;}
+.WCSelect{position:relative;cursor:pointer;background-repeat:repeat-x;background-position:0 -105px;}
+.WCSelect em{position:absolute;top:0;left:3px;color:#fff;height:21px;display:block;line-height:21px;font-style:normal;}
+.WCSelect ul{list-style-type:none;position:absolute;top:18px;left:0;z-index:1000;display:none;background:#6C6D70;}
+.WCSelect ul li {color:#fff;height:20px;cursor:pointer;line-height:20px;padding-left:3px;}
+</style>
+<script type="text/javascript">
+var SetSelects = {
+	Offset:function(e) {
+		var t = e.offsetTop;
+		var l = e.offsetLeft;
+		var w = e.offsetWidth;
+		var h = e.offsetHeight;
+		while(e = e.offsetParent) { t += e.offsetTop; l += e.offsetLeft; }
+		return {top:t, left:l, width:w,	height:h};
+	},
+	intation:function() {
+		var s = document.getElementsByTagName("select"),zIndex = 1;
+		for (var i = 0,c = s.length; i< c; i++) {
+			if(s[i].className == "select") {
+				var WFragment = document.createDocumentFragment(); //创建一个文档碎片
+				var WSelect = document.createElement("div"); //创建当前SELECT的包函层
+				var WEm = document.createElement("em"); //创建当前select的选择值
+				//设置样式
+				WSelect.className = "WCSelect";		
+				WSelect.style.width =  obj.offsetWidth + "px";
+				for (var j = 0,t = s[i].options.length; j < t; j++)
+				{
+					var oLi = document.createElement("li");
+					oLi.innerHTML = s[i].options[j].text;
+					oLi["sValue"] = s[i].options[j].value;
+					WFragment.appendChild(oLi);
+					s[i].options[j].selected && (WEm.innerHTML = s[i].options[j].text)
+				}
+				WUl.appendChild(WFragment);
+				WSelect.appendChild(WEm);
+				WSelect.appendChild(WUl);
+				s[i].parentNode.insertBefore(WSelect, s[i]);//在当前select对象前面插入创建当前SELECT的包函层
+				WSelect.appendChild(s[i]);//当前的select包函在创建层中
+				
+				//绑定单击事件
+				WSelect.onclick = function (event)
+				{
+					var o = this.getElementsByTagName("ul")[0] || SetSelects.prevElement(this).getElementsByTagName("ul")[0];
+					this.parentNode.style.position = "relative";
+					this.parentNode.style.zIndex = zIndex++;
+					o.style.display = o.style.display == "block" ? "none" : "block";
+					SetSelects.hideOtherWCul(o);
+					var aLi = o.getElementsByTagName("li");
+					for (i = 0, c = aLi.length; i <c; i++)
+					{
+						aLi[i].onmouseover = function ()
+						{
+							//this.className = "hover"
+							this.style.background = '#333';
+						};
+						aLi[i].onmouseout = function ()
+						{
+							this.style.background = '#6C6D70';	
+						};
+						aLi[i].onclick = function ()
+						{
+							SetSelects.prevElement(this.parentNode).innerHTML = this.innerHTML;
+							SetSelects.nextElement(this.parentNode).value = this.sValue;
+							SetSelects.ListenerOnchange(SetSelects.nextElement(this.parentNode));
+						}
+					}
+					(event || window.event).cancelBubble = true;
+					document.onclick = function ()
+					{
+						o.style.display = "none"	
+					}
+				}
+				s[i].style.visibility = "hidden";
+			}
+		}
+	},
+	prevElement: function(obj){
+		return obj.previousSibling || obj.previousElementSibling || null;
+	},
+	nextElement: function(obj){
+		return obj.nextSibling || obj.nextElementSibling || null;
+	},
+	hideOtherWCul: function(obj) {
+		var WCUl,allElements = document.getElementsByTagName('*');
+		for (var i = 0,j = allElements.length; i < j; i++) {
+			if (allElements[i].className == 'WCSelect') {
+				WCUl = allElements[i].getElementsByTagName("ul");
+				if (obj != WCUl[0]) WCUl[0].style.display = "none";
+			}
+		}
+		return true;
+	},
+	//监听onchange事件
+	ListenerOnchange: function(obj){
+		if(document.all){  
+			obj.fireEvent("onchange");  
+		}else{  
+			var evt = document.createEvent('HTMLEvents');  
+			evt.initEvent('change',true,true);  
+			obj.dispatchEvent(evt);  
+		}
+	},
+	//创建UL列表
+	CreackUlist: function(s,showHeight){
+		var WFragment = document.createDocumentFragment(); //创建一个文档碎片
+		var isUlist = document.getElementById("WSUlist");
+		if(isUlist){
+			isUlist.innerHTML = '';
+		} else {
+			var WUl = document.createElement("ul"); //创建下拉列表
+			WUl.id = 'WSUlist';
+		}
+		WUl.style.width = s.offsetWidth + "px";
+		WUl.style.height = s.options.length * 20 + "px";
+		if(parseInt(WUl.style.height) > showHeight) {
+			WUl.style.height = showHeight + "px";
+		}
+		WUl.style.listStyle = 'none';
+		WUl.style.position = 'absolute';
+		WUl.style.top = (s.offset.top + parseInt(getCurrentStyle(this).height)+1) + "px";
+		WUl.style.left = s.offset.left + "px";
+		WUl.style.zIndex = 99999;
+		WUl.onselectstart = function() {return false;};
+		
+		for (var j = 0,t = s[i].options.length; j < t; j++)
+		{
+			var ULi = document.createElement("li");
+			ULi.innerHTML = s[i].options[j].text;
+			ULi["sValue"] = s[i].options[j].value;
+			WFragment.appendChild(oLi);
+		}
+		WUl.appendChild(WFragment);
+		document.body.appendChild(WUl);
+	}
+}
+
+window.onload = function() {
+	var time = new Date().getTime();
+	console.time(time);
+	SetSelects.intation();
+	console.timeEnd(time);
+}
+</script>
+</head>
+
+<body>
+<select>
+  	<option>这一只不需要美化</option>
+    <option>选择1_1</option>
+    <option>选择1_2</option>
+  </select>
+  &nbsp;
+  <select class="select">
+  	<option>要美化的就加class</option>
+    <option>选择2_1</option>
+    <option>选择2_22_22_22_2</option>
+    <option>选择2_22_22_22_3</option>
+  </select>
+  
+  <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+    <select class="select" onChange="alert(this.value);">
+    <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+    <option value="3_2">选择3_22_22_22_2</option>
+    <option value="3_3">选择3_22_22_22_3</option>
+    <option value="3_4">选择3_22_22_22_4</option>
+    <option value="3_5">选择3_22_22_22_5</option>
+    <option value="3_6">选择3_22_22_22_6</option>
+    <option value="3_7">选择3_22_22_22_7</option>
+    <option value="3_8">选择3_22_22_22_8</option>
+    <option value="3_9">选择3_22_22_22_9</option>
+    <option value="3_10">选择3_22_22_22_10</option>
+    <option value="3_11">选择3_22_22_22_11</option>
+    <option value="3_12">选择3_22_22_22_12</option>
+    <option value="3_13">选择3_22_22_22_13</option>
+    <option value="3_14">选择3_22_22_22_14</option>
+    <option value="3_15">选择3_22_22_22_15</option>
+    <option value="3_16">选择3_22_22_22_16</option>
+  </select>
+</body>
+</html>

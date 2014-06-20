@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>模拟表单控件</title>
+<style type="text/css">
+/* ----表单控件CSS开始---- ↓ */
+.WellForm *{margin:0;padding:0;}
+.WellForm{font-size:12px;font-family:arial;line-height:21px;}
+.WellForm pre{float:left;margin-right:10px;}
+/*background*/
+.WellForm .TextL,.WellForm .TextR,.WellForm .WellText,
+.WellForm .SelectL,.WellForm .SelectR,.WellForm .WellSelect,
+.WellForm .WellTextArea .T,
+.WellForm .WellTextArea .T .TL,
+.WellForm .WellTextArea .T .TM,
+.WellForm .WellTextArea .B,
+.WellForm .WellTextArea .B .BL,
+.WellForm .WellTextArea .B .BM,
+.WellForm .WellRadio,
+.WellForm .WellCheckBox,
+.WellForm .ButtonL,.WellForm .ButtonR,.WellForm .WellButton
+{background:url(http://js.fgm.cc/learn/lesson9/WellForm/WellForm.gif) no-repeat;}
+/*WellText*/
+.WellForm .TextL,.WellForm .TextR,.WellForm .WellText{float:left;width:5px;height:21px;}
+.WellForm .TextL{background-position:0 0;}.WellForm .TextR{background-position:right 0;}
+.WellForm .TextLH{background-position:0 -21px;}.WellForm .TextRH{background-position:right -21px;}
+.WellForm .WellText{border:0;width:auto;height:17px;padding:2px 0;padding:3px 0 1px\9;*padding:3px 0 1px;font-family:arial;background-repeat:repeat-x;background-position:0 -42px;}
+.WellForm .WellTextH{background-position:0 -63px;}
+/*WellSelect*/
+.WellForm .SelectL,.WellForm .SelectR,.WellForm .WellSelect{float:left;height:21px;}
+.WellForm .SelectL{width:3px;background-position:0 -84px;}
+.WellForm .SelectR{width:16px;cursor:pointer;background-position:right -84px;margin-right:5px;}
+.WellForm .WellSelect{position:relative;cursor:pointer;background-repeat:repeat-x;background-position:0 -105px;}
+
+.WellForm .WellSelect em{position:absolute;top:0;left:3px;color:#fff;height:21px;display:block;line-height:21px;font-style:normal;}
+.WellForm .WellSelect ul{list-style-type:none;position:absolute;top:18px;left:0;z-index:1000;display:none;background:#6C6D70;}
+.WellForm .WellSelect ul li {color:#fff;height:20px;cursor:pointer;line-height:20px;padding-left:3px;}
+.WellForm .WellSelect ul li.hover{background:#333;}
+/*WellTextArea*/
+.WellForm .WellTextArea{float:left;}
+.WellForm .WellTextArea .T,
+.WellForm .WellTextArea .T .TL,
+.WellForm .WellTextArea .T .TM,
+.WellForm .WellTextArea .B,
+.WellForm .WellTextArea .B .BL,
+.WellForm .WellTextArea .B .BM
+{height:5px;overflow:hidden;}
+.WellForm .WellTextArea .T{float:left;width:100%;background-position:right -126px;}
+.WellForm .WellTextArea .TH{float:left;width:100%;background-position:right -131px;}
+.WellForm .WellTextArea .T .TL{background-position:0 -126px;}
+.WellForm .WellTextArea .TH .TL{background-position:0 -131px;}
+.WellForm .WellTextArea .T .TM{margin:0 5px;background-repeat:repeat-x;background-position:0 -136px;}
+.WellForm .WellTextArea .TH .TM{margin:0 5px;background-repeat:repeat-x;background-position:0 -141px;}
+.WellForm .WellTextArea .B{float:left;width:100%;background-position:right -146px;}
+.WellForm .WellTextArea .BH{float:left;width:100%;background-position:right -151px;}
+.WellForm .WellTextArea .B .BL{background-position:0 -146px;}
+.WellForm .WellTextArea .BH .BL{background-position:0 -151px;}
+.WellForm .WellTextArea .B .BM{margin:0 5px;background-repeat:repeat-x;background-position:0 -156px;}
+.WellForm .WellTextArea .BH .BM{margin:0 5px;background-repeat:repeat-x;background-position:0 -161px;}
+.WellForm .WellTextArea .M,
+.WellForm .WellTextArea .M .MR
+{float:left;background:url(http://js.fgm.cc/learn/lesson9/WellForm/TextArea-1.gif) repeat-y;}
+.WellForm .WellTextArea .M{background-position:0 0;}
+.WellForm .WellTextArea .M .MR{background-position:right 0;}
+.WellForm .WellTextArea .MH,
+.WellForm .WellTextArea .MH .MR
+{float:left;background:url(http://js.fgm.cc/learn/lesson9/WellForm/TextArea-2.gif) repeat-y;}
+.WellForm .WellTextArea .MH{background-position:0 0;}
+.WellForm .WellTextArea .MH .MR{background-position:right 0;}
+.WellForm .WellTextArea textarea{float:left;border:0;margin:0 5px;overflow:auto;background:url(http://js.fgm.cc/learn/lesson9/WellForm/TextArea.gif);font-family:arial;font-size:12px;resize:none;}
+/*WellRadio*/
+.WellForm .WellRadio{float:left;width:13px;height:13px;cursor:pointer;overflow:hidden;margin:4px 5px 0 0;background-position:-15px -270px;}
+.WellForm .WellRadioH{background-position:-15px -284px;}
+.WellForm .WellRadio input{margin-top:13px;display:none;}
+/*WellCheckBox*/
+.WellForm .WellCheckBox{float:left;width:12px;height:12px;cursor:pointer;overflow:hidden;margin:4px 5px 0 0;background-position:0 -270px;}
+.WellForm .WellCheckBoxH{background-position:0 -283px;}
+.WellForm .WellCheckBox input{margin-top:12px;display:none;}
+/*WellButton*/
+.WellForm .ButtonL,.WellForm .ButtonR,.WellForm .WellButton{cursor:pointer;float:left;width:5px;height:26px;}
+.WellForm .ButtonL{background-position:0 -166px;}.WellForm .ButtonR{background-position:right -166px;margin-right:10px;}
+.WellForm .ButtonLH{background-position:0 -192px;}.WellForm .ButtonRH{background-position:right -192px;}
+.WellForm .WellButton{border:0;width:auto;font-size:12px;color:#fff!important;height:26px;padding:0 10px 3px;*padding-bottom:0;padding-bottom:0\9;font-family:arial;background-repeat:repeat-x;background-position:0 -218px;}
+.WellForm .WellButtonH{background-position:0 -244px;}
+/* ----表单控件CSS结束---- ↑ */
+
+form{float:left;padding:20px;border:2px dashed #ccc;margin:20px 0 0 40px;width:380px;}
+form .item{float:left;clear:both;width:100%;margin-bottom:10px;}
+.WellForm label{float:left;width:4em;height:21px;text-align:right;}
+</style>
+<script type="text/javascript">
+window.onload = function ()
+{
+	var aForm = document.getElementsByTagName("form");
+	//多个表单
+	for (var i = 0; i < aForm.length; i++) WellForm(aForm[i]);
+};
+
+
+
+/*------------------------------------------------- +
+  可以将以下JS保存为文件, 方便调用
+  使用方法：WellForm(element) //element 为表单元素
+ +------------------------------------------------- */
+ 
+// 获取class
+function getClass(sClass, oParent)
+{
+	var aClass = [];	
+	var reClass = new RegExp("(^| )" + sClass + "( |$)");
+	var aElem = (oParent || document).getElementsByTagName("*");
+	for (var i = 0; i < aElem.length; i++) reClass.test(aElem[i].className) && aClass.push(aElem[i]);
+	return aClass
+}
+// class是否存在
+function hasClass(obj, sClass)
+{
+	var reg = new RegExp("(^|\\s)" + sClass + "(\\s|$)");
+	return reg.test(obj.className)
+}
+// 添加class
+function addClass(obj, sClass)
+{
+	hasClass(obj, sClass) || (obj.className += " "+sClass)
+}
+// 删除class
+function removeClass(obj, sClass)
+{
+	if (hasClass(obj, sClass))
+	{
+		var reg = new RegExp("(^|\\s)" + sClass + "(\\s|$)");
+		obj.className = obj.className.replace(reg, "");
+	}
+}
+// 上一个元素
+function prevElement(obj)
+{
+	return obj.previousSibling || obj.previousElementSibling || null	
+}
+// 下一个元素
+function nextElement(obj)
+{
+	return obj.nextSibling || obj.nextElementSibling || null	
+}
+// 自定义表单函数
+function WellForm(form)
+{
+	var i = 0;
+	var zIndex = 1;	
+	var aSelect = form.getElementsByTagName("select");
+	form.className = "WellForm";
+	
+	/* 下拉菜单 */
+	for (i = 0; i < aSelect.length; i++)
+	{
+		var oFragment = document.createDocumentFragment();
+		var oSelectR = document.createElement("div");
+		var oWellSelect = document.createElement("div");
+		var oEm = document.createElement("em");
+		var oUl = document.createElement("ul");
+		oSelectR.className = "SelectR";
+		oWellSelect.className = "WellSelect";		
+		//插入结构
+		aSelect[i].parentNode.insertBefore(oSelectR, nextElement(aSelect[i]));
+		oUl.style.width = oWellSelect.style.width =  aSelect[i].offsetWidth - oSelectR.offsetWidth / 2 + "px";		
+		
+		for (var j = 0; j < aSelect[i].options.length; j++)
+		{
+			var oLi = document.createElement("li");
+			oLi.innerHTML = aSelect[i].options[j].text;
+			oLi["sValue"] = aSelect[i].options[j].value;
+			oFragment.appendChild(oLi);
+			aSelect[i].options[j].selected && (oEm.innerHTML = aSelect[i].options[j].text)
+		}
+		oUl.appendChild(oFragment);
+		oWellSelect.appendChild(oEm);
+		oWellSelect.appendChild(oUl);
+		aSelect[i].parentNode.insertBefore(oWellSelect, aSelect[i]);
+		oWellSelect.appendChild(aSelect[i]);
+		
+		oWellSelect.onclick = oSelectR.onclick = function (event)
+		{
+			var o = this.getElementsByTagName("ul")[0] || prevElement(this).getElementsByTagName("ul")[0];
+			var aUl = form.getElementsByTagName("ul");
+			this.parentNode.style.position = "relative";
+			this.parentNode.style.zIndex = zIndex++;
+			o.style.display = o.style.display == "block" ? "none" : "block";
+			for (i = 0; i < aUl.length; i++)
+			{
+				if (o == aUl[i]) continue;
+				aUl[i].style.display = "none";
+			}
+			var aLi = o.getElementsByTagName("li");
+			
+			for (i = 0; i < aLi.length; i++)
+			{
+				aLi[i].onmouseover = function ()
+				{
+					this.className = "hover"	
+				};
+				aLi[i].onmouseout = function ()
+				{
+					this.className = ""	
+				};
+				aLi[i].onclick = function ()
+				{
+					prevElement(this.parentNode).innerHTML = this.innerHTML;
+					nextElement(this.parentNode).value = this.sValue;
+					ListenerOnchange(nextElement(this.parentNode));
+				}
+			}
+			
+			(event || window.event).cancelBubble = true;
+			
+			document.onclick = function ()
+			{
+				o.style.display = "none"	
+			}
+		}
+}
+	
+function ListenerOnchange(obj){
+	if(document.all){  
+		obj.fireEvent("onchange");  
+	}else{  
+		var evt = document.createEvent('HTMLEvents');  
+		evt.initEvent('change',true,true);  
+		obj.dispatchEvent(evt);  
+	}
+}
+
+
+}
+</script>
+</head>
+<body>
+<form>
+    <div class="item">
+        <label>性别：</label>
+        <select name="sex" id="sex"  onchange="mychange(this);">
+            <option value="男孩">男孩</option>
+            <option value="女孩" selected="selected">女孩</option>
+            <option value="人妖">人妖</option>
+        </select>
+    </div>
+    <div class="item">
+        <label>生日：</label>
+        <div style="position: absolute; left:10px; top:10px; padding:100px">
+  <div style="position: relative; padding: 100px; border: 1px solid #f00">
+  <div style="position: absolute; right:100px; top:100px;">
+        <select name="month" id="month" onchange="mychange(this);" class="cssselect">
+            <option value="1">1月</option>
+            <option value="2">2月</option>
+            <option value="3">3月</option>
+            <option value="4">4月</option>
+            <option value="5">5月</option>
+            <option value="6">6月</option>
+            <option value="7" selected="selected">7月</option>
+            <option value="8">8月</option>
+            <option value="9">9月</option>
+            <option value="10">10月</option>
+        </select>
+        </div></div></div>
+        <select name="day" id="day"  onchange="mychange(this);">
+            <option value="1">1号</option>
+            <option value="2">2号</option>
+            <option value="3">3号</option>
+            <option value="4">4号</option>
+            <option value="5">5号</option>
+            <option value="6" selected="selected">6号</option>
+            <option value="7">7号</option>
+            <option value="8">8号</option>
+            <option value="9">9号</option>
+            <option value="10">10号</option>
+            <option value="11">11号</option>
+            <option value="12">12号</option>
+            <option value="13">13号</option>
+            <option value="14">14号</option>
+            <option value="15">15号</option>
+            <option value="16">16号</option>
+        </select>
+        <select name="year" id="year" onchange="mychange(this);">
+            <option value="2000">2000年</option>
+            <option value="2001">2001年</option>
+            <option value="2002">2002年</option>
+            <option value="2003">2003年</option>
+            <option value="2004">2004年</option>
+            <option value="2005">2005年</option>
+            <option value="2006">2006年</option>
+            <option value="2007">2007年</option>
+            <option value="2008">2008年</option>
+            <option value="2009">2009年</option>
+            <option value="2010" selected="selected">2010年</option>
+            <option value="2011">2011年</option>
+            <option value="2012">2012年</option>
+            <option value="2013">2013年</option>
+        </select>
+    </div>
+    <div class="item"><label></label><input type="button" value="提交" id="submit" /><input type="button" value="动态添加月" id="addmonth" /><input type="button" value="动态修改当前日" id="chday" /></div>
+</form>
+
+<script type="text/javascript">
+var $ = function(obj){
+	return document.getElementById(obj);
+}
+
+$('submit').onclick = function(){
+	var temp = '';
+	temp += '您选择的性别是：' + $('sex').value + '\n';
+	temp += '您的出生日期是：' + $('year').value + '年 ' + $('month').value +'月 ' + $('day').value + '日';
+	alert(temp);	
+}
+$('addmonth').onclick = function(){
+	var selmonth = $('month'),objOption=document.createElement("OPTION");
+		objOption.value= '11';
+		objOption.text= '11月';
+		selmonth.options.add(objOption);
+		selmonth.options[selmonth.options.length-1].selected='selected';
+		//ListenerOnchange(selmonth);
+}
+/*var SelForm = document.getElementsByTagName("form");
+for (var i = 0,j = SelForm.length ; i < j; i++) {
+	var TSelect = SelForm[i].getElementsByTagName("select");
+	for (var i = 0, j = TSelect.length; i < j; i++){
+		if(TSelect[i].addEventListener){  // firefox  , w3c   
+			TSelect[i].addEventListener("change",mychange(TSelect[i]),false); 
+		} else {   // ie   
+			TSelect[i].attachEvent("onchange",mychange(TSelect[i])); 
+		}
+	}
+}*/
+function mychange(obj){
+	alert("我的当前值是：" + obj.options[obj.selectedIndex].value);
+}
+</script>
+</body>
+</html>

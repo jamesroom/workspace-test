@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Snow</title>
+	<script type="text/javascript" src="Snow_files/utility.js"></script>
+	<script type="text/javascript">
+		if (!Util.supportCanvas) document.location = "sorry.html";
+	</script>
+	<link rel="stylesheet" type="text/css" href="Snow_files/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Snow_files/style.css">
+</head>
+<body class="is-animate">
+	<div style="height: 1106px;" class="bg">
+		<div class="bg-1 bg-item" data-color="04f91d"></div>
+		<div class="bg-2 bg-item" data-color="0048ff"></div>
+		<div class="bg-3 bg-item bg-parallax" data-color="ff0015" data-index="3" style="background: url(&quot;css/images/bg/003.jpg&quot;) repeat scroll 0% 0% yellow; left: 2000px;"></div>
+		<div class="bg-4 bg-item" data-color="00e9ff"></div>
+		<div class="bg-5 bg-item" data-color="04f91d"></div>
+		<div class="bg-6 bg-item" data-color="0048ff"></div>
+		<div class="bg-7 bg-item" data-color="ff0015" data-index="7" style="z-index: 999; left: 6000px; background-image: url(&quot;css/images/bg/007.jpg&quot;);">
+			<div class="intro modal">
+				<div class="modal-header">
+					<h3>谢谢观赏</h3>
+				</div>
+				<div class="modal-body">
+					<p><a href="http://qingbob.com/" class="btn" target="_blank">访问我的技术博客</a></p>
+					<p><a href="#" class="btn">如何实现的（暂无）</a></p>
+					<p>联络我: juststayinvegas#gmail.com (把#换成@)</p>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
+	<canvas height="1106" width="1920" id="canvas"></canvas>
+	<div class="ground"></div>
+	<div style="left: 0px;" class="light">
+		<div class="light-bulb is-animate"></div>
+	</div>
+	<div style="left: 1820px;" class="person">
+		<img src="Snow_files/jimmy.png" class="face">
+		<div class="speech hide">
+			<div class="speech-content"></div>
+		</div>
+	</div>
+	<div class="panel-control modal">
+		<div class="modal-header">
+			<button class="btn btn-god btn-small" data-switch="off">开启上帝模式</button>
+		</div>
+		<div class="modal-body hide">
+			<div class="panel-row">
+				<div class="btn-group btn-group-speed" data-toggle="buttons-radio">
+				 	<button type="button" class="btn" data-value="0">无风</button>
+				  	<button type="button" class="btn active" data-value="3">微风</button>
+				  	<button type="button" class="btn" data-value="10">大风</button>
+				  	<button type="button" class="btn btn-danger" data-value="30">被吹走了</button>
+				</div>
+			</div>
+			<div class="panel-row">
+				<div class="btn-group btn-group-mp" data-toggle="buttons-radio">
+				 	<button type="button" class="btn" data-value="0">学停了</button>
+				  	<button type="button" class="btn active" data-value="30">小雪</button>
+				  	<button type="button" class="btn" data-value="100">大雪</button>
+				  	<button type="button" class="btn btn-danger" data-value="500">暴风雪</button>
+				</div>
+			</div>			
+			<div class="panel-row">
+				<div class="btn-group btn-group-weight" data-toggle="buttons-radio">
+				 	<button type="button" class="btn" data-value="-5">文艺雪</button>
+				  	<button type="button" class="btn active" data-value="1">普通雪</button>
+				  	<button type="button" class="btn btn-danger" data-value="10">冰雹</button>
+				</div>
+			</div>			
+		</div>
+	</div>
+	<script type="text/javascript" src="Snow_files/jquery-1.js"></script>	
+	<script type="text/javascript" src="Snow_files/bootstrap-button.js"></script>	
+	<script type="text/javascript" src="Snow_files/snow.js"></script>
+	<script type="text/javascript" src="Snow_files/parallax.js"></script>
+	<script type="text/javascript" src="Snow_files/ui.js"></script>	
+
+</body></html>

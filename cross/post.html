@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="/jockjs.js"></script>
+
+    <meta charset="utf-8"/>
+    <title>跨域知识</title>
+    <style type="text/css">
+        dt{
+            font-size: 26px;;
+            font-weight: 700;;
+        }
+        dd{
+            margin: 20px 40px 0 ;
+        }
+        li pre{
+            background: rgba(204, 204, 204, 0.19);
+            color: #333;;
+            padding: 10px;;
+        }
+        .code{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dt>POST方式跨域</dt>
+    <dd>通过form表单提交给iframe</dd>
+    <dd>
+        <ul>
+            <li>
+                www.anjuke.com请求www.haozu.com
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <textarea cols="180" rows="20" >
+              function postJSONP(opts) {
+                    var guid = 'J__ID' + J.getTime().toString(16),
+                            sojContainer = D.createElement('div'),
+                            form = D.createElement('form'),
+                            inputs = [], items = opts.data;
+                    GUID && GUID.parentElement.removeChild(GUID);
+                    GUID = sojContainer;
+                    var head = document.head || document.getElementsByTagName("head")[0];
+                    sojContainer.innerHTML = "<iframe id="' + guid + '" name="' + guid + '"></iframe>";
+                    sojContainer.style.display = 'none';
+                    for (var k in items) {
+                        inputs.push("<input type='hidden' name='" + k + "' value='" + items[k] + "' />")
+                    }
+                    opts.callback && inputs.push("<input type='hidden' name='callback' value='" + opts.callback + "' />");
+                    form.innerHTML = inputs.join('');
+                    form.action = opts.url;
+                    form.method = 'post';
+                    form.target = guid;
+                    sojContainer.appendChild(form);
+                    head.insertBefore(sojContainer, head.firstChild);
+                    form.submit();
+                    form = null;
+              }
+
+                </textarea>
+                <input type="button" value="send ajax" id="btnHost"/>
+            </li>
+
+
+            <li>
+               <form method="post" action="http://zu.anjuke.com/post.php" target="ifm"/>
+                    <input type="text" value="http://www.anjuke.com/302.php" name="url"/>
+                    <input type="text" value="123" name="num"/>
+                    <input type="text" value="window.parent.callback" name="callback"/>
+                     <input type="submit" value="submit"/>
+                </form>
+                <iframe name="ifm"></iframe>
+            </li>
+            <li style="color: red;">
+                何时删掉iframe?
+            </li>
+
+            <li style="color: red;">
+                什么是单点登陆?
+                http-equiv="Refresh" content="50; url=http://www.jb51.net"
+                <code>
+                <meta http-equiv="Refresh" content="50; url=http://www.anjuke.com" />
+                content=5这个是时间的秒数，可以直接设置为0
+                </code>
+            </li>
+
+
+        </ul>
+    </dd>
+    <dd>
+        <a href="html5.html">高级浏览器的跨域方案</a>
+    </dd>
+</dl>
+<script>
+window.callback= function(data){
+    alert(data.msg)
+}
+J.s(".btnCode").each(function(k,v){
+    v.on('click',function(){
+        var dom = v.up(0).next().get();
+        dom.style.display=dom.style.display=="block"?"":"block";
+    })
+})
+
+function postJSONP(opts) {
+    var guid = 'J__ID' + J.getTime().toString(16),
+            sojContainer = D.createElement('div'),
+            form = D.createElement('form'),
+            inputs = [], items = opts.data;
+    GUID && GUID.parentElement.removeChild(GUID);
+    GUID = sojContainer;
+    var head = document.head || document.getElementsByTagName("head")[0];
+    sojContainer.innerHTML = '<iframe id="' + guid + '" name="' + guid + '"></iframe>';
+    sojContainer.style.display = 'none';
+    for (var k in items) {
+        inputs.push("<input type='hidden' name='" + k + "' value='" + items[k] + "' />")
+    }
+    opts.callback && inputs.push("<input type='hidden' name='callback' value='" + opts.callback + "' />");
+    form.innerHTML = inputs.join('');
+    form.action = opts.url;
+    form.method = 'post';
+    form.target = guid;
+    sojContainer.appendChild(form);
+    head.insertBefore(sojContainer, head.firstChild);
+    form.submit();
+    form = null;
+}
+</script>
+
+</body>
+</html>

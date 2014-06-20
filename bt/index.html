@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>hello ,this is first time to anjuke?</title>
+		<style type="text/css">
+            .span1{
+              width: 500px;
+                height: 400px;
+                background: red;
+            }
+            .span2{
+                width: 600px;
+                height: 700px;
+                background: blue;
+            }
+            .span3{
+                width: 1000px;
+                height: 200px;
+                background: green;
+                float: right;
+            }
+            .span4{
+                width: 200px;
+                height: 300px;
+                background: yellow;
+            }
+		</style>
+	</head>
+	<body>
+		
+		<div class="row">
+			<div class="span1"/>	</div>
+			<div class="span2"/></div>
+			<div class="span3"/></div>	
+			<div class="span4"/></div>	
+			<div class="span5"/></div>	
+			<div class="span6"/></div>	
+		</div>
+		<h1>heelo ,world!!!</h1>ds
+    <div id="content">
+        <input id="btn" type="button" value="click"/>
+
+    </div>
+        <input id="enable" type="button" value="enabled"/>
+    </body>
+    <script type="text/javascript">
+        document.getElementById("btn").addEventListener('click',function(){
+          alert(1)
+            this.disabled =true;
+        })
+        document.getElementById("enable").addEventListener('click',function(){
+            document.getElementById("content").disabled = true;
+          alert( document.getElementById("btn").value)
+
+        })
+    </script>
+
+
+
+
+</html>

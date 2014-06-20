@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="/jockjs.js"></script>
+
+    <meta charset="utf-8"/>
+    <title>web worker</title>
+    <style type="text/css">
+        dt{
+            font-size: 26px;;
+            font-weight: 700;;
+        }
+        dd{
+            margin: 20px 40px 0 ;
+        }
+        li pre{
+            background: rgba(204, 204, 204, 0.19);
+            color: #333;;
+            padding: 10px;;
+        }
+        .code{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dt>目前浏览器对于postmessage的兼容列表：</dt>
+    <dd>Chrome          </dd>
+    <dd>Firefox         </dd>
+    <dd>Internet Explorer 8+</dd>
+    <dd>Safari           </dd>
+    <dd>
+        <ul>
+            <li>
+                www.anjuke.com请求zu.anjuke.com
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <pre>
+            J.g("btnSend").on('click',function(){
+               var worker = document.getElementById("ifm").contentWindow.postMessage(J.g("txt").val(),'http://www.haozu.com');
+                window.onMessage= function(d){
+                    alert(d.data);
+                }
+            });
+                </pre>
+                <input type="button" value="send ajax" id="btnHost"/>
+            </li>
+            <li>
+                <label>发送的值</label><input id="txt" type="text"/><input type="button" value="send" id="btnSend"/>
+                <iframe id="ifm" src="http://www.haozu.com/webworker_bb.html?r=">
+
+                </iframe>
+            </li>
+
+
+
+
+             </ul>
+    </dd>
+</dl>
+<a href="">postmessage</a>
+<script>
+    document.getElementById("ifm").src=document.getElementById("ifm").src+"?r"+Math.random();
+    var num=0;
+    J.g("btnSend").on('click',function(){
+           var worker = document.getElementById("ifm").contentWindow.postMessage(J.g("txt").val(),'http://www.haozu.com');
+    });
+    window.addEventListener("message", function(e){
+        alert(e.data);
+    }, false);
+</script>
+
+</body>
+</html>

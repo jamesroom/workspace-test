@@ -1,0 +1,225 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta http-equiv=”X-UA-Compatible” content=”IE=EmulateIE7″ />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+
+
+</head>
+<body>
+
+<div class="container">
+<!-- header begin -->
+<div class="header">
+    <div class="logo">
+        <img alt="" src="/afmsc/1/msc_logo.png" width="444px" height="45px"/>
+        <a href="/logout.action" class="a_exit">退出</a>
+
+        <div class="clear"></div>
+    </div>
+    <div class="blank"></div>
+</div>
+<!-- header end -->
+
+
+<!-- content begin -->
+<div class="content con_list">
+<dl class="equal nav_l">
+
+
+    <!--[if IE]> 所有的IE可识别
+    <![endif]-->
+    <dt>
+        <span>欢迎进入系统</span><br/>
+        &#24464;&#26032;&#40857;
+
+    </dt>
+
+    <dd class="dd_active"><a class="dd_a dd_hd" href="/actionmanage/list.action">活动管理</a></dd>
+
+
+    <dd ><a  class="dd_a dd_rw"  href="/taskmanage/allotList.action">任务管理</a></dd>
+    <dd ><a  class="dd_a dd_zj"  href="/tsrmanage/report.action">绩效与质检</a></dd>
+
+
+    <dd ><a class="dd_a dd_hj" href="/mytask/taskList.action">待呼叫任务</a></dd>
+    <dd ><a class="dd_a dd_gj" href="/mycustomer/list.action">需跟进用户</a></dd>
+
+    <input type="button" id="clearBtn" value="清除结果"/>
+
+    <div id="content">
+
+    </div>
+
+</dl>
+<div class="equal con_r con_task">
+
+<input type="text" value="" />
+
+
+<script type="text/javascript">
+    function bindFocusBLur(focusHandler,blurHandler){
+        var isOut = true;
+        (function(){
+            var v = getIeVersion();
+            if(!v || v>8){
+                window.addEventListener('blur',blur);
+                window.addEventListener('focus',focus);
+                focus();
+            }else{
+                document.attachEvent('onfocusout',focusOut)
+                document.attachEvent('onfocusin',focusIn)
+            }
+        })();
+
+        function focusIn(e){
+            if(isOut){
+                isOut = false;
+                var e = window.event || e;
+                focus(e);
+            }
+        }
+        function focusOut(e){
+            var e = e || window.event;
+            var target = e.srcElement || e.target ;
+            var relatedTarget = e.toElement;
+            if(!relatedTarget){
+                blur(e);
+                isOut = true;
+            }
+        }
+        function focus(e){
+        }
+
+        function blur(e){
+
+        }
+
+        function getIeVersion(){
+            var undef, v = 4, div = document.createElement('div');
+            while (div.innerHTML = '<!--[if gt IE '+(++v)+']><i></i>< ![endif]-->',div.getElementsByTagName('i')[0]);
+            return v > 5? v : undefined;
+        }
+    }
+    bindFocusBLur();
+
+
+
+</script>
+
+
+<script type="text/javascript">
+    var blurStr ;
+    var focusStr;
+
+    var focusTimer;
+    var content = document.getElementById("content");
+    document.getElementById("clearBtn").onclick = function(){
+        content.innerHTML = '';
+    }
+/*    window.onblur=function(){
+        var div = document.createElement("div");
+        div.innerHTML =  'blur';
+        content.appendChild(div)
+
+    }
+    window.onfocus=function(){
+        var div = document.createElement("div");
+        div.innerHTML =  'focus';
+        content.appendChild(div)
+
+    }*/
+
+
+    var isOut=true;
+
+
+  /* document.onfocusout  = function(e){
+       var e = e || window.event;
+       var target = e.srcElement || e.target ;
+       var relatedTarget = e.toElement;
+        if(!relatedTarget){
+            var div = document.createElement("div");
+            div.innerHTML =  'focusout:'+target.nodeName;
+            content.appendChild(div)
+            isOut = true;
+        }
+
+    }
+
+    document.onfocusin = function(){
+           if(isOut){
+               isOut = false;
+                var e = window.event;
+                var target = e.srcElement || e.target ;
+                var div = document.createElement("div");
+                div.innerHTML =  'focusin:'+ target.nodeName;
+                content.appendChild(div)
+           }
+    }*/
+
+
+
+ /*   $(document).bind('focusout', function(e){
+
+        var div = document.createElement("div");
+        div.innerHTML =  'focusout';
+        content.appendChild(div)
+    });
+
+    $(document).bind('focusin', function(){
+        var div = document.createElement("div");
+        div.innerHTML =  'focusin';
+        content.appendChild(div)
+    });*/
+
+</script>
+
+<script>
+  /*  function getIeVersion(){
+        var undef, v = 3, div = document.createElement('div');
+        while (div.innerHTML = '<!--[if gt IE '+(++v)+']><i></i>< ![endif]-->',div.getElementsByTagName('i')[0]);
+        return v > 3? v : undefined;
+    }*/
+  //  alert(getIeVersion())
+
+  /*  function getIeVersion(){
+
+        var undef, v = 3, tag = true;
+
+
+
+        while (tag) {
+
+            var div = document.createElement('div');
+            div.innerHTML = '<h1>ddd</h1>';
+            tag = div.getElementsByTagName('i')[0];
+            alert(v);alert(tag);
+        }
+
+        return v > 10? v : undefined;*/
+ //   }
+//alert(getIeVersion());
+
+</script>
+
+
+
+</div>
+<div class="clear"></div>
+</div>
+</div>
+
+</body>
+</html>

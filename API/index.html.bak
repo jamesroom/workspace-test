@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> JOCKJS API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <script type="text/javascript" src="http://jockjs.lunjiang.dev.anjuke.com/ujs/base/logger/dom.dom/dom.query/ajax/event/ui.panel/ui.autocomplete/ui.exposure/cookie/site/utils.base/05649b0d6dcf6ac5bed03ca14aee15a3.js"></script>
+    <script>
+
+
+
+    </script>
+
+    <style type="text/css">
+        html{
+
+
+
+
+        }
+        body, ul, li, p{
+            margin:0;
+            padding:0;
+            color:#333;
+
+        }
+        .header-box {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            height: 56px;
+            overflow: hidden;
+            background-color: #393939;
+            background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#656565), to(#393939));
+            background-image: -moz-linear-gradient(0% 0% 270deg, #656565,#393939);
+        }
+        .left-box {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            font-size: 1.3em;
+            border-right:1px solid #aaa;
+            margin-right:30px;
+        }
+        .call-list{
+            width:100%;
+            float:left;
+
+        }
+        .call-list h3{
+            width:100%;
+            height:24px;
+            line-height:24px;
+            background:#eaeaea;
+            margin:0;
+            padding:0;
+            font-size:13px;
+            font-weight:normal;
+            text-indent:22px;
+        }
+        .call-list li{
+            width:100%;
+            cursor:pointer;
+            font-size:13px;
+            border-bottom:1px solid #ddd;
+            text-indent:36px;
+        }
+        .call-list li span:first-child{
+            font-weight: bold;
+        }
+        .call-list span{
+            display:block;
+            width:100%;
+            line-height:25px;
+            color:#666;
+        }
+        .right-box{
+            display: none;
+            width:70%;
+            position:fixed;
+            left:350px;
+            float:left;
+            top:45px;
+            background:#fff;
+        }
+        .call-detail {
+            float:left;
+            font-size:12px;
+            width:95%;
+        }
+        .call-detail h1{
+            border-bottom:1px solid #666;
+        }
+        .call-detail .parms{
+            font-size: 12px;
+            background: #EEE;
+            border: 1px dotted #CCC;
+            padding: 6px;
+            margin-bottom: 10px;
+        }
+        .explain{
+            margin:32px 0px;
+        }
+        .title{
+            color:#359;
+            margin-top:60px;
+            font-size:16px;
+            font-weight:bold;
+
+        }
+
+        .code{
+            margin-top:15px;
+        }
+        .call-detail pre {
+            background: #FFFCE8;
+            padding: 10px;
+            line-height: 16px;
+            margin: 0 10px 20px 10px;
+            font-family: 'Courier New', 'Terminal', monospace;
+            font-size: 12px;
+            border: 1px dotted #FFE0BB;
+            margin:0;
+        }
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header-box" id="aaa"></div>
+<div class="left-box">
+<div class="call-list">
+    <h3>DOM选取</h3>
+    <ul>
+        <li>
+            <span>J.g("id")</span>
+            <span>获取{id}的dom对象</span>
+        </li>
+        <li>
+            <span>J.s(".className")</span>
+            <span>获取{class}的一个数组</span>
+        </li>
+        <li>
+            <span>J.s("tagName")</span>
+            <span>获取{tagName}的一个数组</span>
+        </li>
+        <li>
+            <span>J.s(".className1").eq()</span>
+            <span>获取已获取dom对象中符合条件的子元素</span>
+        </li>
+        <li>
+            <span>dom.setStyle({display:"none"})</span>
+            <span>设置　ＤＯＭ　对像的ＣＳＳ样式</span>
+        </li>
+        <li>
+            <span>J.g("container").getStyle("display")</span>
+            <span>获取已获取dom对象的样式</span>
+        </li>
+        <li>
+            <span>J.g("container").setOpacity:(１)</span>
+            <span>设置dom对象的透明度</span>
+        </li>
+        <li>
+            <span>J.g("container").getOpacity:("display")</span>
+            <span>获取om对象的透明度</span>
+        </li>
+        <li>
+            <span>J.g("container").get()</span>
+            <span>获得dom对像的原生生对像</span>
+        </li>
+        <li>
+            <span>J.g("container").append(dom)</span>
+            <span>把dom对象插入到container后面，dom对象为原生ＤＯＭ元素或ＪＯＣＫＪＳ对象</span>
+        </li>
+
+        <li>
+            <span>J.g("container").html()</span>
+            <span>类似于innerHTML,不传参，返回innertHTML,传参，则设置内面的值</span>
+        </li>
+        <li>
+            <span>J.g("container").width()</span>
+            <span>获得元素的宽，其宽值为,border+padding+width，注意，隐藏的元素也能获得，原生不能获得</span>
+        </li>
+        <li>
+            <span>J.g("container").height()</span>
+            <span>获得元素的高，其高值为,border+padding+width，注意，隐藏的元素也能获得，原生不能获得</span>
+        </li>
+
+        <li>
+            <span>J.g("container").offset()</span>
+            <span>获得元素相对页面左上角的，Ｘ，Ｙ，返回的是一个对象{x:0,y:0}</span>
+        </li>
+
+
+        <li>
+            <span>J.g("container").offset()</span>
+            <span>获得元素相对页面左上角的，Ｘ，Ｙ，返回的是一个对象{x:0,y:0}</span>
+        </li>
+
+
+        <li>
+            <span>dom.attr("data-tracker")</span>
+            <span>获得元素属性，设置元素属生，dom.attr("data-tracker"，“１２３４”)</span>
+        </li>
+
+
+        <li>
+            <span>dom.addClass("className")</span>
+            <span>加className,相关函数，removeClass(),hasClass()</span>
+        </li>
+
+
+
+        <li>
+            <span>dom.addClass("className")</span>
+            <span>加className,相关函数，removeClass(),hasClass()</span>
+        </li>
+
+
+        <li>
+            <span>dom.addClass("className")</span>
+            <span>加className,相关函数，removeClass(),hasClass()</span>
+        </li>
+
+
+		 <li>
+            <span>dom.first()</span>
+            <span>获得dom父节点中的第一个子节点，相关函数，last(),next(),prev()</span>
+        </li>
+
+		 <li>
+            <span>dom.up()</span>
+            <span>获得dom元素的父节点，dom.up(1),父节点的父节点，依此类推。</span>
+        </li>
+		 <li>
+            <span>dom.down()</span>
+            <span>获得dom元素的父节点，dom.up(1),父节点的父节点，依此类推。</span>
+        </li>
+    </ul>
+</div>
+<div class="call-list">
+    <h3>事件</h3>
+    <ul>
+        <li>
+            <span>each()</span>
+            <span>J.s("li").each(function(k,v){
+				v.addClass("focus");
+			})</span>
+        </li>
+
+		   <li>
+            <span>mix()</span>
+		
+            <code>
+		var obj1 = {a:1,b:2};
+		var obj2= {a:'a',b:'b',c:1};
+		J.mix(obj1,obj2);
+		console.log(obj1,obj2);	
+		结果：obj1={
+				a:'a',
+				b:'b'
+				c:1
+			}
+			</code>
+        </li>
+		<li>
+            <span>inArray(arg1,arg2)</span>
+            <span>J.inArray("a",["a",1,1]);,arg1在arg2数组中的index,没有的话，返回-1</span>
+        </li>
+
+		<li>
+            <span>J.ready()</span>
+            <span>J.ready(function(){
+				//DOM树渲染完毕执行的方法。不同于onload方法
+			});</span>
+        </li>
+
+
+		<li>
+            <span>J.ready()</span>
+            <span>J.ready(function(){
+				//DOM树渲染完毕执行的方法。不同于onload方法
+			});</span>
+        </li>
+
+		<li>
+            <span>J.loadResource(url,type,callback)</span>
+            <pre>
+			 * 资源加载器，
+			 * 资源加载成功后会执行callback回调
+			 * @param {String} url 资源地址
+			 * @param {String} type 资源类型 || callback
+			 * @param {Function} callback
+			 
+			 如：J.loadResource("www.baidu.com/api.js",'js',function(){
+				//load complete logic code
+			 });
+
+			});
+			</pre>
+        </li>
+
+		<li>
+            <span>J.get(opts)</span>
+            <pre>
+			/**
+			 * 初始配置
+			 * @param {Boolean} async                 是否异步请求。默认为true（异步）
+			 * @param {String | Object} data         需要发送的数据。
+			 * @param {Object} headers               要设置的头信息
+			 * @return {Function} onSuccess           请求成功时触发，      function(XMLHttpRequest xhr, string responseText)
+			 * @return {Function} onFailure           请求失败时触发，      function(XMLHttpRequest xhr)
+			 * @return {Function} onBeforerequest     发送请求之前触发，    function(XMLHttpRequest xhr)
+			 * @return {Function} onTimeout           发送请求超时触发，    function(XMLHttpRequest xhr)
+			 * @param {String} cache                 是否需要缓存，默认为true（缓存）
+			 */
+
+			 
+			 如：
+			 J.get({url:'',data:{},onSuccess:function(){
+			 
+			 
+			 }});
+			 注意：这是发送GET请求。超过5S未返回，将会取消ajax.J.post():类似。
+			 跨跨的话，onSuccess无法执行，需要自定议callback为一全局方法。
+			</pre>
+        </li>
+
+
+		<li>
+            <span>J.get(opts)</span>
+            <pre>
+			/**
+			 * 初始配置
+			 * @param {Boolean} async                 是否异步请求。默认为true（异步）
+			 * @param {String | Object} data         需要发送的数据。
+			 * @param {Object} headers               要设置的头信息
+			 * @return {Function} onSuccess           请求成功时触发，      function(XMLHttpRequest xhr, string responseText)
+			 * @return {Function} onFailure           请求失败时触发，      function(XMLHttpRequest xhr)
+			 * @return {Function} onBeforerequest     发送请求之前触发，    function(XMLHttpRequest xhr)
+			 * @return {Function} onTimeout           发送请求超时触发，    function(XMLHttpRequest xhr)
+			 * @param {String} cache                 是否需要缓存，默认为true（缓存）
+			 */
+
+			 
+			 如：
+			 J.get({url:'',data:{},onSuccess:function(){
+			 
+			 
+			 }});
+			 注意：这是发送GET请求。超过5S未返回，将会取消ajax.J.post():类似。
+			 跨跨的话，onSuccess无法执行，需要自定议callback为一全局方法。
+			 如：J.get({url:'',type:'jsonp',data:{},callback:"window.callback"});
+			</pre>
+        </li>
+
+			<li>
+            <span>绑定事件：J.g("container").on(type,handler)</span>
+            <pre>
+				为ID为 container的对象绑定事件，如
+				J.g("container").on(‘click’,function(){
+					
+				})
+				,解绑事件，J.un(type,handler);
+			</pre>
+        </li>
+    </ul>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.isArray(array)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>array:Array</span></p>
+    <p class="explain">判断对象是否为Array</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.isArray([1,2,3] || document.getElementsByTagName("div"));          //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.isString(str)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>str:String</span></p>
+    <p class="explain">判断对象是否为String</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.isString("hello world!!");          //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.isNumber(num)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>num:Number</span></p>
+    <p class="explain">判断对象是否为Number</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.isNumber(0);          //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.isObject(obj)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>obj:Object</span></p>
+    <p class="explain">判断对象是否为Object</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.isObject({});          //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.isDom(dom)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>dom:DOM Object</span></p>
+    <p class="explain">判断对象是否为DOM</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.isDom(document.getElementById("id1"));          //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.isEmpty(val)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>val:Null || String || undefined</span></p>
+    <p class="explain">判断对象是否为空字符串,NULL,Undefined</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.isEmpty(null || "" || undefined);          //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.arrayContains(arrA,arrB)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>arrA:Array</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>参数2:</span><span>arrB:Array</span></p>
+    <p class="explain">判断ArrayB是否包含另一个ArrayA</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.arrayContains(["a","b","c"],["b"]);        //true
+
+BshareLib.fn.arrayContains(["a","b","c"],"a");        //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.inArray(arr,obj)<span>&nbsp;返回:Boolean</span></h1>
+    <p class="parms"><span>参数1:</span><span>arrA:Array</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>参数2:</span><span>obj:*</span></p>
+    <p class="explain">检查一个对象是否在array中</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.inArray([1,2,3],2);        //true
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.removeDuplicateInArray(arr)<span>&nbsp;返回:Array</span></h1>
+    <p class="parms"><span>参数1:</span><span>arrA:Array</span></p>
+    <p class="explain">移除array中重复的项</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.removeDuplicateInArray([1,2,3,4,3,2,1]);        //[1,2,3,4]
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.loadModule(scriptUrl)<span>&nbsp;返回:Undefined</span></h1>
+    <p class="parms"><span>参数1:</span><span>scriptUrl:String</span></p>
+    <p class="explain">加载javascript文件</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.loadModule("http://lzstatic.bshare.cn/api/script.js");
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.trim(str)<span>&nbsp;返回:String</span></h1>
+    <p class="parms"><span>参数1:</span><span>str:String</span></p>
+    <p class="explain">过滤所有空格</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.trim(" 搞基 才是 真爱 ");      //"搞基才是真爱"
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.trimFrontAndEnd(str)<span>&nbsp;返回:String</span></h1>
+    <p class="parms"><span>参数1:</span><span>str:String</span></p>
+    <p class="explain">过滤头尾的空格</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+BshareLib.fn.trimFrontAndEnd(" 搞基 才是 真爱 ");      //"搞基 才是 真爱"
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.bind(eventHandle,callback,Bubble)<span>&nbsp;返回:Undefined</span></h1>
+    <p class="parms"><span>参数1:</span><span>eventHandle:String</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>参数2:</span><span>callback:Function</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span>参数3:</span><span>Bubble:Boolean</span></p>
+    <p class="explain">绑定事件</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+function handle(ev){}
+
+$$("#id1").bind("click",handle,false);
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+<div class="call-detail hide">
+    <h1>BshareLib.fn.unbind(eventHandle,callback,Bubble)<span>&nbsp;返回:Undefined</span></h1>
+    <p class="parms"><span>参数1:</span><span>eventHandle:String</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>参数2:</span><span>callback:Function</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span>参数3:</span><span>Bubble:Boolean</span></p>
+    <p class="explain">卸载已绑定事件</p>
+    <p class="title">Code:</p>
+    <p class="code">
+					<pre>
+
+&lt;script>
+
+function handle(ev){}
+
+$$("#id1").unbind("click",handle,false);
+
+&lt;/script>
+					</pre>
+    </p>
+</div>
+
+</div>
+</div>
+</body>
+</html>

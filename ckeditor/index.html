@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <style type="text/css">
+        .textarea{
+            overflow:auto;
+            border: 1px solid #d0d0d0;
+            width:500px;
+            height:176px;
+            margin-left: 132px;
+            color:#999999;
+            font-size: 14px;
+            _font-size: 13px;
+            _padding:8px 0 0 8px;
+        }
+
+    </style>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        function textareaonfocus(){
+            if(this.value == ' 介绍楼盘规划、建设、推盘以及现场动态详情，可获得更多客户关注' || this.value == '介绍楼盘规划、建设、推盘以及现场动态详情，可获得更多客户关注')
+            {this.style.color = '#000';
+                this.value=''
+            }
+        }
+        function textareaononblur(){
+            if(this.value==''){
+                this.style.color = '#999';
+                this.value=' 介绍楼盘规划、建设、推盘以及现场动态详情，可获得更多客户关注'
+            }
+        }
+    </script>
+    <title></title>
+</head>
+<body>
+<textarea rows="6" cols="60" id="myEditor" name="content"><span style="color:#999;font-size: 14px;_font-size:13px;">向客户介绍楼盘特色、卖点，对比其他楼盘的优势等等，图文结合可获得更多关注量</span></textarea>
+
+</textarea>
+<script type="text/javascript">
+    var config = {
+        toolbar:[
+            ['Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Bold', 'Italic', 'Underline'],
+            ['OrderedList', 'UnorderedList', 'NumberedList', 'BulletedList', 'Indent', 'Outdent'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyFull'],
+            ['Link','Image']
+        ],
+     language:'zh-CN',
+      width:'647',
+      height:'500',
+      resize_enabled:true,
+//        //,skin:'office2003'
+//     skin:'kama'
+    };
+    CKEDITOR.replace('myEditor',config);
+
+</script>
+</body>
+</html>

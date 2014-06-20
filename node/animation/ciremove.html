@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset=utf-8" />
+    <title>HTML5 Canvas火焰效果</title>
+    <style type="text/css">
+        body{margin: 0; padding: 0;}
+        #canvas-keleyi-com {display: block;}
+    </style>
+</head>
+<body>
+<canvas id="canvas-keleyi-com"></canvas>
+<script type="text/javascript">
+    window.onload = function () {
+        var keleyi_canvas = document.getElementById("canvas-kel" + "eyi-com");
+        ctx = keleyi_canvas.getContext("2d");
+        W = window.innerWidth, H = window.innerHeight;
+        keleyi_canvas.width = W;
+        keleyi_canvas.height = H;
+               /*keleyi_canvas.addEventListener('mousemove', track_mouse, false);
+        function track_mouse(e) {
+            mouse.x = e.pageX;
+            mouse.y = e.pageY;
+        }*/
+
+        /**
+         * 计算每一px弧度对应的角度
+         * @param r
+         * @returns {number}
+         */
+
+        function calcEveryRadionToAngle(r){
+            var pi = Math.PI;
+            return 90/(pi*pi*r*r);
+        }
+        var R =200;
+        var angle = calcEveryRadionToAngle(R)
+
+        var _proSetTimeout= window.setTimeout;
+        window.setTimeout=function(fun,delay){
+            var type = Object.prototype.toString.call(fun);
+            if(type == '[object Function]'){
+                var  params = Array.prototype.slice.call(arguments,2);
+                var f = function(){
+                    fun.apply(null,params);
+                }
+                return _proSetTimeout(f,delay)
+
+            }
+            return _proSetTimeout;
+
+        }
+        function recycle(r,angle){
+
+
+
+            var s = Math.floor(2*Math.PI*r);
+            console.log(s);
+            var x, y,i=0;
+            ctx.save();
+            ctx.translate(500,300);
+            //timer(i,s,angle,R);
+            setTimeout(timer,100,i,s,angle,R);
+          //  ctx.restore();
+        }
+        recycle(R,angle);
+        /**
+         * 一px对应于多少度
+         * 公式，先求出每px对应多少弧度值：360/(2*Math.PI*R)
+         * 所以n度对应的弧度值为：n*Math.pi/180;
+         * 坐标为：x = Math.cos(n*Math.pi/180)*R;
+         * 坐标为：y = Math.sin(n*Math.pi/180)*R;
+         * @type {number}
+         */
+        //var sep =180/(Math.PI * R);
+
+        function timer(i,s,angle,r){
+
+	    var _i = i;
+        ctx.clearRect(-500,-300,W,H);
+            //ctx.globalCompositeOperation="source-atop";
+
+	    var sep =180/(Math.PI * R);
+            for(;_i<s;_i+=10){
+               var hudu = (_i*sep*Math.PI/180);
+               var x=  Math.cos(hudu)*r;
+                var y= Math.sin(hudu)*r;
+                ctx.moveTo(x,y);
+                ctx.arc(x,y,2,0,2*Math.PI,false);
+            }
+                ctx.fill();
+            i++;
+	   setTimeout(timer,100,i,s,angle,R);
+       
+ //       ctx.clearRect(-500,-300,W,H);
+	}
+
+
+
+
+
+ //      setInterval(draw, 80);
+    }
+</script>
+</body>
+</html>

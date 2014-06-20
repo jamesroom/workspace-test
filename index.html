@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+    <style type="text/css">
+        ul{
+            border: 2px solid #ccc;
+            width: 200px;
+            display: inline-block;
+            margin: 0 auto;
+            list-style: none;
+            padding-left: 0;
+            position: absolute;
+        }
+        ul li {
+            line-height: 30px;;
+        }
+        ul li:hover{
+            background-color: #00CC33;
+            padding-left: 0;
+        }
+        .popover{
+            position: absolute;
+            left: 200px;;
+            top:0px;
+            border: 1px solid red;;
+        }
+    </style>
+</head>
+<body >
+<iframe src="http://test.lunjiang.dev.aifang.com/api.html"></iframe>
+<div style="position: absolute">
+
+<ul class="dropdown-menu" role="menu" id="menu">
+
+    <li data-submenu-id="submenu-patas">
+        <a href="#" class="">Patas jian
+            glun </a>
+        <div id="submenu-patas" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Patas</h3>
+            <div class="popover-content"><img src="img/patas.png"></div>
+        </div>
+    </li>
+
+    <li data-submenu-id="submenu-snub-nosed">
+        <a href="#" class="">Golden jianglun Snub-Nosed</a>
+        <div id="submenu-snub-nosed" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Golden Snub-Nosed</h3>
+            <div class="popover-content"><img src="img/snub-nosed.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-duoc-langur">
+        <a href="#" class="maintainHover">Duoc Langur</a>
+        <div id="submenu-duoc-langur" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Duoc Langur</h3>
+            <div class="popover-content"><img src="img/duoc-langur.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-pygmy">
+        <a href="#" class="">Baby Pygmy Marmoset</a>
+        <div id="submenu-pygmy" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Baby Pygmy Marmoset</h3>
+            <div class="popover-content"><img src="img/pygmy.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-tamarin">
+        <a href="#" class="">Black Lion Tamarin</a>
+        <div id="submenu-tamarin" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Black Lion Tamarin</h3>
+            <div class="popover-content"><img src="img/tamarin.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-monk">
+        <a href="#" class="">Monk Saki</a>
+        <div id="submenu-monk" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Monk Saki</h3>
+            <div class="popover-content"><img src="img/monk.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-gabon">
+        <a href="#" class="">Gabon Talapoin</a>
+        <div id="submenu-gabon" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Gabon</h3>
+            <div class="popover-content"><img src="img/gabon.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-grivet">
+        <a href="#" class="">Grivet</a>
+        <div id="submenu-grivet" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Grivet</h3>
+            <div class="popover-content"><img src="img/grivet.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-red-leaf">
+        <a href="#" class="">Red Leaf</a>
+        <div id="submenu-red-leaf" class="popover" style="display: none; top: -1px; left: 183px; height: 268px;">
+            <h3 class="popover-title">Red Leaf</h3>
+            <div class="popover-content"><img src="img/red-leaf.png"></div>
+        </div>
+    </li>
+    <li data-submenu-id="submenu-king-colobus">
+        <a href="#">King Colobus</a>
+        <div id="submenu-king-colobus" class="popover" style="display:none;">
+            <h3 class="popover-title">King Colobus</h3>
+            <div class="popover-content"><img src="img/colobus.png"></div>
+        </div>
+    </li>
+</ul>
+</div>
+添加当前页到收藏夹
+<a href="javascript:AddToFavorite();">加入收藏</a>
+添加指定页到收藏夹
+<a href="javascript:void(0)" onclick="addToFavourite('空域游戏','http://www.sky-x.cn',1)">加入收藏</a>
+当前页设为首页
+<A href="#" onclick="setHomepage();">设为主页</A> 
+指定页设为首页
+<a href="javascript:void(0)" onclick="setHomepage('http://www.sky-x.cn')">设为首页</a>
+</body>
+
+<script type="text/javascript">
+  document.body.innerHTML = document.body.innerHTML.replace(/jianglun/g,'');
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://jockjs.lunjiang.dev.anjuke.com/ujs/base/logger/dom.dom/dom.query/ajax/event/ui.panel/ui.autocomplete/ui.exposure/cookie/site/utils.base/059c96fbfc3a17d86300a886b5630a39.js"></script>
+
+    <meta charset="utf-8"/>
+    <title>HTML5跨域解决方案</title>
+    <style type="text/css">
+        dt{
+            font-size: 26px;;
+            font-weight: 700;;
+        }
+        dd{
+            margin: 20px 40px 0 ;
+        }
+        li pre{
+            background: rgba(204, 204, 204, 0.19);
+            color: #333;;
+            padding: 10px;;
+        }
+        .code{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dt>Access-Control-Allow-Origin：</dt>
+    <dd>Chrome              2.0以上</dd>
+    <dd>Firefox              3.5以上</dd>
+    <dd>Internet Explorer    8+</dd>
+    <dd>Safari               4.0以上</dd>
+    <dd>
+        <ul>
+            <li>
+                www.anjuke.com请求zu.anjuke.com
+                <input type="button" value="view code" class="btnCode"/>
+            </li>
+            <li class="code">
+            <pre>
+              J.g("btnHost").on('click',function(){
+                    J.get({
+                        type:'json',
+                        url:'http://zu.anjuke.com/html5.php',
+                        data:{num:num++},
+                        onSuccess:function(data){
+                            alert(data.msg);
+                            }
+                        }
+                );
+                PHP:
+                    header("Access-Control-Allow-Origin: *");
+                    $ret = array("code"=>0,msg=>$_REQUEST["num"]);
+                    $callback = $_REQUEST["callback"];
+                    echo json_encode($ret);
+
+
+                SITE 前端：
+                    var xhr = new XMLHttpRequest();
+                    if(typeof xhr.withCredentials==undefined){
+                    //This browser does not support xhr2 yet.
+                    }else{
+                    //Go head!
+                    }
+                </pre>
+                <input type="button" value="send ajax" id="btnHost1"/>
+
+            </li>
+            <input type="button" value="access contorl type" id="btnHost"/>
+
+
+
+                    </ul>
+    </dd>
+   <dd>
+       <a href="webworker.html">postMessage</a>
+   </dd>
+</dl>
+<script>
+    J.s(".btnCode").each(function(k,v){
+        v.on('click',function(){
+            var dom = v.up(0).next().get();
+            dom.style.display=dom.style.display=="block"?"":"block";
+        })
+    })
+    var num=0;
+    J.g("btnHost").on('click',function(){
+        J.get({type:'json',url:'http://www.lunjiang.com:81/cross/html5.php',data:{num:num++},onSuccess:function(data){
+            alert(data.msg);
+        }})
+
+    });
+window.callback= function(data){
+
+}
+
+</script>
+
+</body>
+</html>

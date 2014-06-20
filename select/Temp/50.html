@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>模拟Select 10个Select 组件</title>
+<style type="text/css">
+* { margin:0; padding:0; }
+body { margin:50px; }
+.CSOPDiv {
+    position:absolute;
+    height:20px;
+    font-size:12px;
+    color:#333;
+    line-height:20px;
+    text-indent:4px;
+    vertical-align:middle;
+    border:1px solid #aaa;
+    cursor:default;
+    background:url(http://www.zbw123.com/webmaster/09/images/select_bg.gif) no-repeat 100% 0;
+}
+.CSOPDiv_over { color:#f96; background-position:100% 100%; }
+.CSOPDiv_out { color:#333; background-position:100% 0; }
+.cDiv {
+    position:absolute;
+    border:1px solid silver;
+    cursor:default;
+    background:#f7f7f7;
+    overflow:auto;
+    z-index:1;
+}
+.cDiv ul {
+    font-size:12px;
+    margin:0;
+    padding:0;
+}
+.cDiv ul li {
+    height:20px;
+    line-height:20px;
+    text-indent:4px;
+}
+</style>
+<script type="text/javascript" src="CSelect.js"></script>
+<script type="text/javascript">
+function $() {
+    return document.getElementById(arguments[0]);
+}
+window.onload = function() {
+    var startTime,endTime;
+    var d=new Date();
+    startTime=d.getTime();
+    cselect.Intation();
+    d=new Date();
+    endTime=d.getTime ();
+    $('timer').innerHTML = (endTime-startTime)/1000 ;
+
+}
+</script>
+</head>
+
+<body>
+测试耗用时间显示：<span id="timer"></span>
+<form>
+    <select onChange="alert(this.value);">
+        <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+        <option value="3_2">选择3_22_22_22_2</option>
+        <option value="3_3">选择3_22_22_22_3</option>
+        <option value="3_4">选择3_22_22_22_4</option>
+        <option value="3_5">选择3_22_22_22_5</option>
+        <option value="3_6">选择3_22_22_22_6</option>
+        <option value="3_7">选择3_22_22_22_7</option>
+        <option value="3_8">选择3_22_22_22_8</option>
+        <option value="3_9" selected="selected">选择3_22_22_22_9</option>
+        <option value="3_10">选择3_22_22_22_10</option>
+        <option value="3_11">选择3_22_22_22_11</option>
+        <option value="3_12">选择3_22_22_22_12</option>
+        <option value="3_13">选择3_22_22_22_13</option>
+        <option value="3_14">选择3_22_22_22_14</option>
+        <option value="3_15">选择3_22_22_22_15</option>
+        <option value="3_16">选择3_22_22_22_16</option>
+    </select>
+  <div style="width:450px; height: 50px; margin: 0 auto; border: 1px solid #f00">
+      <select class="CSelects" onChange="alert(this.value);">
+        <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+        <option value="3_2">选择3_22_22_22_2</option>
+        <option value="3_3">选择3_22_22_22_3</option>
+        <option value="3_4">选择3_22_22_22_4</option>
+        <option value="3_5">选择3_22_22_22_5</option>
+        <option value="3_6">选择3_22_22_22_6</option>
+        <option value="3_7">选择3_22_22_22_7</option>
+        <option value="3_8">选择3_22_22_22_8</option>
+        <option value="3_9" selected="selected">选择3_22_22_22_9</option>
+        <option value="3_10">选择3_22_22_22_10</option>
+        <option value="3_11">选择3_22_22_22_11</option>
+        <option value="3_12">选择3_22_22_22_12</option>
+        <option value="3_13">选择3_22_22_22_13</option>
+        <option value="3_14">选择3_22_22_22_14</option>
+        <option value="3_15">选择3_22_22_22_15</option>
+        <option value="3_16">选择3_22_22_22_16</option>
+    </select>
+  </div>
+  <div style="width:450px; height: 50px; margin: 0 auto; border: 1px solid #f00">
+      <select class="CSelects" onChange="alert(this.value);">
+        <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+        <option value="3_2">选择3_22_22_22_2</option>
+        <option value="3_3">选择3_22_22_22_3</option>
+        <option value="3_4">选择3_22_22_22_4</option>
+        <option value="3_5">选择3_22_22_22_5</option>
+        <option value="3_6">选择3_22_22_22_6</option>
+        <option value="3_7">选择3_22_22_22_7</option>
+        <option value="3_8">选择3_22_22_22_8</option>
+        <option value="3_9">选择3_22_22_22_9</option>
+        <option value="3_10">选择3_22_22_22_10</option>
+        <option value="3_11">选择3_22_22_22_11</option>
+        <option value="3_12">选择3_22_22_22_12</option>
+        <option value="3_13">选择3_22_22_22_13</option>
+        <option value="3_14">选择3_22_22_22_14</option>
+        <option value="3_15" selected="selected">选择3_22_22_22_15</option>
+        <option value="3_16">选择3_22_22_22_16</option>
+    </select>
+  </div>
+  <p>
+    <select onChange="alert(this.value);">
+        <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+        <option value="3_2">选择3_22_22_22_2</option>
+        <option value="3_3">选择3_22_22_22_3</option>
+        <option value="3_4">选择3_22_22_22_4</option>
+        <option value="3_5">选择3_22_22_22_5</option>
+        <option value="3_6">选择3_22_22_22_6</option>
+        <option value="3_7">选择3_22_22_22_7</option>
+        <option value="3_8">选择3_22_22_22_8</option>
+        <option value="3_9">选择3_22_22_22_9</option>
+        <option value="3_10">选择3_22_22_22_10</option>
+        <option value="3_11">选择3_22_22_22_11</option>
+        <option value="3_12">选择3_22_22_22_12</option>
+        <option value="3_13">选择3_22_22_22_13</option>
+        <option value="3_14">选择3_22_22_22_14</option>
+        <option value="3_15">选择3_22_22_22_15</option>
+        <option value="3_16">选择3_22_22_22_16</option>
+    </select>
+    <select class="CSelects" onChange="alert(this.value);">
+        <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+        <option value="3_2">选择3_22_22_22_2</option>
+        <option value="3_3">选择3_22_22_22_3</option>
+        <option value="3_4">选择3_22_22_22_4</option>
+        <option value="3_5">选择3_22_22_22_5</option>
+        <option value="3_6">选择3_22_22_22_6</option>
+        <option value="3_7">选择3_22_22_22_7</option>
+        <option value="3_8">选择3_22_22_22_8</option>
+        <option value="3_9">选择3_22_22_22_9</option>
+        <option value="3_10">选择3_22_22_22_10</option>
+        <option value="3_11">选择3_22_22_22_11</option>
+        <option value="3_12">选择3_22_22_22_12</option>
+        <option value="3_13">选择3_22_22_22_13</option>
+        <option value="3_14">选择3_22_22_22_14</option>
+        <option value="3_15">选择3_22_22_22_15</option>
+        <option value="3_16">选择3_22_22_22_16</option>
+    </select>
+    <select class="CSelects" onChange="alert(this.value);">
+        <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+        <option value="3_2">选择3_22_22_22_2</option>
+        <option value="3_3">选择3_22_22_22_3</option>
+        <option value="3_4">选择3_22_22_22_4</option>
+        <option value="3_5">选择3_22_22_22_5</option>
+        <option value="3_6">选择3_22_22_22_6</option>
+        <option value="3_7">选择3_22_22_22_7</option>
+        <option value="3_8">选择3_22_22_22_8</option>
+        <option value="3_9">选择3_22_22_22_9</option>
+        <option value="3_10">选择3_22_22_22_10</option>
+        <option value="3_11">选择3_22_22_22_11</option>
+        <option value="3_12">选择3_22_22_22_12</option>
+        <option value="3_13">选择3_22_22_22_13</option>
+        <option value="3_14">选择3_22_22_22_14</option>
+        <option value="3_15">选择3_22_22_22_15</option>
+        <option value="3_16">选择3_22_22_22_16</option>
+    </select>
+    <select onChange="alert(this.value);">
+        <option value="3_1">拿这一只来证明取值和取文字都没有问题</option>
+        <option value="3_2">选择3_22_22_22_2</option>
+        <option value="3_3">选择3_22_22_22_3</option>
+        <option value="3_4">选择3_22_22_22_4</option>
+        <option value="3_5">选择3_22_22_22_5</option>
+        <option value="3_6">选择3_22_22_22_6</option>
+        <option value="3_7">选择3_22_22_22_7</option>
+        <option value="3_8">选择3_22_22_22_8</option>
+        <option value="3_9">选择3_22_22_22_9</option>
+        <option value="3_10">选择3_22_22_22_10</option>
+        <option value="3_11">选择3_22_22_22_11</option>
+        <option value="3_12">选择3_22_22_22_12</option>
+        <option value="3_13">选择3_22_22_22_13</option>
+        <option value="3_14">选择3_22_22_22_14</option>
+        <option value="3_15">选择3_22_22_22_15</option>
+        <option value="3_16">选择3_22_22_22_16</option>
+    </select>
+  </p>
+
+</form>
+</body>
+</html>

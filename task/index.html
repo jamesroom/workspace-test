@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="text/javascript" src="http://include.aifcdn.com/ujs/base/logger/dom.dom/dom.query/ajax/event/ui.panel/ui.autocomplete/ui.exposure/cookie/site/utils.base/059c96fbfc3a17d86300a886b5630a39.js"></script>
+    <script type="text/javascript" src="http://pages.lunjiang.dev.anjuke.com/js/prototype-1.6.0.3/prototype_gather_packed.js"></script>
+    <title></title>
+    <script type="text/javascript">
+        function Stack(opption) {
+            var stack = [];
+            var defOpts = {
+                duplicate: false,//加入项是否允许重复
+                callback: function () {
+                }
+            }
+
+            function push(task) {
+                !isDuplicate(task) && stack.push(task);
+            }
+
+            function unShift(task) {
+                setTimeout(function(){
+                    stack.unshift(task)
+                },0);
+            }
+
+            function isDuplicate(task) {
+                var i = 0, len = stack.length;
+                for (; i < stack.length; i++) {
+                    if (stack[i] === task) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function remove(task) {
+                var i = 0, len = stack.length;
+                for (; i < len; i++) {
+                    if (stack[i] === task) {
+                        delete stack[i];
+                        stack.splice(i, 1);
+                    }
+                }
+                return false;
+            }
+
+            function run(data) {
+                stack.length && (stack.shift()(data) !== false) && run();
+            }
+
+            return {
+                run: run,
+                push: push,
+                unShift: unShift,
+                remove: remove,
+                stack: stack
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="click to send ajax" id="btnSend"/>
+    <input type="button" value="ajax long polling" id="btnLongPoll"/>
+    <script type="text/javascript">
+        var arr = [1,2,3,4,5];
+        arr.length =2;
+        alert(arr.join(","));
+        document.getElementById("btnSend").onclick= function(){
+            var script = document.createElement("script");
+            script.src = "http://test.lunjiang.dev.aifang.com/task/index.php";
+            script.onload = script.onreadystatechange= function(e){
+                alert(1)
+                console.log(e);
+            }
+            document.head.appendChild(script);
+        }
+        window['ajaxlongpull'] = function(){
+            alert(111)
+        }
+        J.g("btnLongPoll").on('click',function(){
+            J.post({
+                url:'index.php',
+                type:'jsonp',
+                data:{},
+                callback:'ajaxlongpull'
+            })
+        })
+    </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <script>
+
+        function hotKeys() {
+            var ua = navigator.userAgent.toLowerCase();
+            var str = '';
+            var isWebkit = (ua.indexOf('webkit') != - 1);
+            var isMac = (ua.indexOf('mac') != - 1);
+
+            if (ua.indexOf('konqueror') != - 1) {
+                str = 'CTRL + B'; // Konqueror
+            } else if (window.home || isWebkit || isMac) {
+                str = (isMac ? 'Command/Cmd' : 'CTRL') + ' + D'; // Netscape, Safari, iCab, IE5/Mac
+            }
+            return ((str) ? '按 ' + str + '添加收藏.' : str);
+        }
+
+        function addToFavorites(a,title,url)
+        {
+            title = title || document.title;
+            url = url || location.href;
+            if (window.sidebar) // Firefox
+                window.sidebar.addPanel(title, url, '');
+            else if(window.opera && window.print) // Opera
+            {
+                var elem = document.createElement('a');
+                elem.setAttribute('href',url);
+                elem.setAttribute('title',title);
+                elem.setAttribute('rel','sidebar'); // required to work in opera 7+
+                elem.click();
+            }
+            else if(document.all) // IE
+                window.external.AddFavorite(url, title);
+            else {
+                alert(hotKeys());
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<a href="#" onclick="addToFavorites(this,'OutOfMemory.CN','http://outofmemory.cn/')">添加收藏</a>
+
+<p>按上面的地址可以将内存溢出 OutOfMemory.CN添加到收藏夹。</p>
+
+</body>
+
+</html>

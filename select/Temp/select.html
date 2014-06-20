@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css" media="screen">
+<!--
+body{font-family:Tahoma;font-size:12px;}
+.GUC_select{border:1px solid #ccc;width:200px;overflow:hidden;height:18px;}
+.GUC_arrow{float:right;width:0;height:0;border:5px solid #fff;border-top:5px solid #ccc;margin:8px 5px 0 0;cursor:pointer;}
+-->
+</style>
+</head>
+<body>
+
+<div id="here"></div>
+
+<script type="text/javascript">
+<!--
+//获取对象
+function $(e){return document.getElementById(e);}
+//DOM创建新元素
+function newElement(e){return document.createElement(e);}
+//获取元素的绝对位置
+function getPos(obj,s) {
+    var top=0;
+    var left=0;
+    var width=obj.offsetWidth;
+    var height=obj.offsetHeight;
+	while (obj.offsetParent) {
+		top += obj.offsetTop;
+		left += obj.offsetLeft;
+		obj = obj.offsetParent;
+    }
+	if(document.all){
+		top+=document.body.offsetTop;
+		left+=document.body.offsetLeft;
+	}
+    return {"top":top,"left":left,"width":width,"height":height};
+}
+//DropDown 类
+/*
+Author:Fonqing(P-Eric) <wangyinglei@yeah.net>
+*/
+function DropDown(where,name,data) {
+	var self = this;
+	self.name = name;//模拟select 的 name
+	self.dat = data;//模拟select 的 options
+	self.tdata = '';
+	self.dwn = null;
+	self.change;
+	self.create = function(){
+		var box = $(where).appendChild(newElement('div'));
+		var aow = newElement('div');
+		var now = box.appendChild(aow);
+		var dis = newElement('div');
+		var hid = newElement('input');
+		box.className = 'GUC_select';
+		aow.className = 'GUC_arrow';
+		dis.innerHTML = 'Simple DropDownList';//使用是改变为"请选择"等字样
+		box.appendChild(dis);
+		with(hid){
+			type = 'hidden';
+			name = id = self.name;
+			style.clear = 'both';
+		}
+		box.appendChild(hid);
+		now.onclick=function(){
+			var dwn = newElement('div');
+			self.dwn = document.body.appendChild(dwn);
+			with(self.dwn.style){
+				border    = '1px solid #ccc';
+				borderTop = 'none';
+			}
+			if(typeof self.dat == 'object'){
+				for(var i=0; i<self.dat.length; i++){
+					tmp = self.dwn.appendChild(newElement('div'));
+                                             tmp.style.width='100%';
+					tmp.innerHTML = self.dat[i][1];
+					tmp.value = self.dat[i][0];//不好意思，在这里耍了赖皮
+					tmp.onclick = function(){
+						dis.innerHTML = this.innerHTML;
+						if(hid.value!=this.value){
+							self.onchg();
+						}
+						hid.value = this.value;
+						if(self.dwn!=null){
+							document.body.removeChild(self.dwn);
+							self.dwn=null
+						}
+						document.onmouseover=function(){};
+						document.onmousemove=function(){};
+					}
+				}
+			}
+			var pos = getPos(box);
+			with(self.dwn.style){
+				position = 'absolute';
+				backgroundColor = '#fff';
+				width = pos.width - 2 + 'px';
+				left = pos.left + 'px';
+				top = pos.top + pos.height + 'px';
+			}
+			document.onmouseover=function(){
+				var _on = true;
+				var p = getPos(self.dwn);
+				if(_on){
+					document.onmousemove=function(e){
+						e = e || window.event;
+						if(_on){
+							if(!(e.clientX<p.left+p.width &&
+								 e.clientX>p.left &&
+								 e.clientY>p.top-p.height &&
+								 e.clientY<p.top+p.height)){
+								_on=false;
+								if(self.dwn!=null){
+									document.body.removeChild(self.dwn);
+									self.dwn=null
+								}
+								document.onmouseover=function(){};
+								document.onmousemove=function(){};
+							}
+						}
+					}
+				}
+			}
+		}
+	};
+	self.empty = function(){
+		self.dat=[];
+	};
+	self.addOption = function(e){
+		self.dat.push(e);
+	};
+	self.onchg = function(e){return e};
+}
+var dd=new DropDown('here','select1',[
+	['1','option1'],
+	['2','option2']
+]);
+dd.create();
+dd.addOption(['3','option3']);
+dd.onchg(function(){
+	alert('ddd');	
+});
+function ass() {
+	dd.addOption(['4','option4']);
+}
+function showsel(){
+	alert($('select1').value);
+}
+-->
+</script>
+<input type="button" value="添加一option" onclick="ass()" />
+<input type="button"  onclick="showsel();" />
+<br />
+</body>
+</html>

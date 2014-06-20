@@ -1,0 +1,217 @@
+#allmap {
+	width: 800px;
+	height: 600px;
+	overflow: hidden;
+	margin: 0;
+}
+
+#l-map {
+	height: 100%;
+	width: 78%;
+	float: left;
+	border-right: 2px solid #bcbcbc;
+}
+
+#r-result {
+	height: 100%;
+	width: 20%;
+	float: left;
+}
+
+.i_B {
+	background: url("/images/loupanmap/gif.gif") no-repeat scroll 0 0
+		transparent;
+	*background: none;
+	*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/loupanmap/ol_2.png",
+		sizingMethod='crop' );
+	display: inline-block;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 23px;
+	padding: 0 0 0 10px;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.i_S_r {
+	vertical-align: middle;
+	display: inline-block;
+	height: 30px;
+	width: 12px;
+	line-height: 23px;
+	background: url("/images/loupanmap/gif.gif") no-repeat 0 -61px;
+}
+
+.i_S_r.blue_bg {
+	background: url("/images/loupanmap/blue_bg.png") no-repeat 0 -28px;
+}
+
+.i_B.blue_bg {
+	background: url("/images/loupanmap/blue_bg.png") no-repeat 0 2px;
+}
+
+.i_B.act {
+	background: url("/images/loupanmap/ol_2.png") no-repeat scroll left 0
+		transparent;
+	*background: none;
+	*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/loupanmap/ol_2.png",
+		sizingMethod='crop' );
+}
+
+.m_pop {
+	background: url("/images/loupanmap/bg_1.png") no-repeat scroll 0 0
+		transparent;
+	*background: none;
+	*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/loupanmap/bg_1.png",
+		sizingMethod='crop' );
+	cursor: default;
+	height: 232px;
+	width: 405px;
+}
+
+.m_content {
+	height: 232px;
+	overflow: hidden;
+	position: relative;
+	width: 405px;
+}
+
+.m_close {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: 23px;
+	right: 40px;
+	cursor: pointer;
+	background: url("/images/loupanmap/bg_1.png") no-repeat -136px -336px;
+	overflow: hidden;
+	z-index: 102;
+	z-index: 102 !important;
+}
+
+.m_img:link,.m_img:visited,.m_img:hover {
+	background: url("/images/loupanmap/bg_1.png") no-repeat scroll 0 -248px
+		transparent;
+	*background: none;
+	*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/loupanmap/bg_1.png",
+		sizingMethod='crop' );
+	height: 105px;
+	overflow: hidden;
+	position: absolute;
+	right: 40px;
+	top: 64px;
+	width: 126px;
+}
+
+.m_img .m_a_img {
+	margin: 2px;
+	width: 122px;
+	height: 94px;
+	overflow: hidden;
+	border: none;
+	padding: 0;
+}
+
+.m_box {
+	font-size: 13px;
+	height: 155px;
+	margin: 29px 0 0 37px;
+	width: 190px;
+}
+
+dl,dt,dd {
+	margin: 0;
+	padding: 0;
+}
+
+.dt_001 {
+	height: 30px;
+	overflow: hidden;
+}
+
+.dd_002,.dd_003 {
+	margin-bottom: 3px;
+}
+
+/* .dd_004 { */
+/* 	margin: 9px 0 18px; */
+/* } */
+.dd_003,.dd_004,.dd_006 {
+	height: 16px;
+	overflow: hidden;
+}
+
+#full_screen {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 65px;
+	height: 62px;
+	z-index: 9999;
+	background: url('/images/loupanmap/view-fullscreen.png');
+}
+
+#exit_screen {
+	position: absolute;
+	right: 0;
+	display: none;
+	top: 0;
+	width: 65px;
+	height: 62px;
+	z-index: 9999;
+	background: url('/images/loupanmap/close.png');
+}
+.full_view{
+	position:absolute!important;
+	left:0;
+	top:0;
+}
+
+.m_detail:link,.m_detail:visited,.m_detail:hover {
+	display: block;
+	background: url("/images/loupanmap/bg_2.png") no-repeat 0 0;
+	width: 132px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	overflow: hidden;
+	text-decoration: none;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.i_type {
+	background-position: -136px -240px;
+	margin: 0 17px 0 0;
+	padding: 0 0 0 19px;
+}
+
+.i_con {
+	background: url("/images/loupanmap/bg_1.png") no-repeat scroll -136px
+		-240px #FFFFFF;
+	color: #888888;
+	display: inline-block;
+	height: 15px;
+	overflow: hidden;
+	width: auto;
+}
+.container{
+	position:static!important;
+
+}
+.container .con_r .list{
+	border:1px solid #FF9900;
+	width:800px;
+	padding:0;
+	margin:0;
+	background:none;
+
+}
+
+.tip_content {
+	position: absolute;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <meta charset="utf-8"/>
+    <title>web worker</title>
+    <style type="text/css">
+        dt{
+            font-size: 26px;;
+            font-weight: 700;;
+        }
+        dd{
+            margin: 20px 40px 0 ;
+        }
+        li pre{
+            background: rgba(204, 204, 204, 0.19);
+            color: #333;;
+            padding: 10px;;
+        }
+        .code{
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.addEventListener('message',function(e){
+            document.getElementById("msg").innerHTML=(e.data);
+            e.source.postMessage("hi ,this is form server"+ e.data, e.origin);
+        })
+    </script>
+</head>
+<body>
+<span id="msg"></span>
+
+
+
+</body>
+</html>

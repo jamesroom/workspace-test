@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap 101 Template</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, world!</h1>
+        <form>
+            <fieldset>
+                <legend>Legend</legend>
+                <label>Label name</label>
+                <input type="text" placeholder="Type something">
+                <span class="help-block">Example block-level help text here.</span>
+                <label class="checkbox">
+                    <input type="checkbox"> Check me out
+                </label>
+                <button type="submit" class="btn btn-success btn-block">Submit<i class="icon-align-justify"></i></button>
+            </fieldset>
+        </form>
+        <a class="btn" data-toggle="modal" href="#myModal" >点击触发</a>
+        <div class="modal" id="myModal" style="display: none">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">×</a>
+                <h3>对话框提示</h3>
+            </div>
+            <div class="modal-body">
+                <p>对话框内容</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn">关闭</a>
+                <a href="#" class="btn btn-primary">保存更新</a>
+            </div>
+        </div>
+        <ul class="nav nav-pills">
+            <li><a href="#">规则的链接</a></li>
+            <li class="dropdown" id="menutest1">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1">
+                下拉项
+                <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">动作</a></li>
+                    <li><a href="#">另一个动作</a></li>
+                    <li><a href="#">其他</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">被间隔的链接</a></li>
+                </ul>
+            </li>
+            <li class='active'>
+            <a data-toggle="dropdown" href="#menutest1">点击我看看</a>
+            </li>
+            </ul>
+        <ul class="nav nav-tabs">
+  <li><a href="#home" data-toggle="tab">首页</a></li>
+  <li><a href="#profile" data-toggle="tab">介绍</a></li>
+  <li><a href="#messages" data-toggle="tab">消息</a></li>
+  <li><a href="#settings" data-toggle="tab">设置</a></li>
+</ul>-
+    </div>
+</body>
+<script type="text/javascript">
+$('#myTab').tab('show')
+    //$('#myModal').modal('toggle')
+</script>
+</html>
